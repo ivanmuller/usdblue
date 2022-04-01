@@ -1,22 +1,24 @@
 export default {
   "quotes" : [
     {
-      "source": "https://api.coingecko.com/api/v3/simple/price?ids=terra-luna&vs_currencies=usd",  
+      "source": "https://mercados.ambito.com/home/general",  
       "sourceName": "Ambito Financiero",
-      "selectionKey": "terra-luna",
-      "method": getCrypto()
+      "selectionFilter": "Dólar Informal",
+      "selectionKey1": "val1",
+      "selectionKey2": "val2",
+      "method": 'getByAfAPI'
     },
     {
-      "source": "https://api.coingecko.com/api/v3/simple/price?ids=binancecoin&vs_currencies=usd",
+      "source": "https://api.coingecko.com/api/v3/simple/price?ids=busd&vs_currencies=ars",
       "sourceName": "Dolar Hoy",
-      "selectionKey": "binancecoin",
-      "method": getCrypto()
+      "selectionKey": "busd",
+      "method": 'getByCrypto'
     },
     {
-      "source": "https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd",
+      "source": "https://api.coingecko.com/api/v3/simple/price?ids=anchorust&vs_currencies=ars",
       "sourceName": "Cronista",
-      "selectionKey": "solana",
-      "method": getCrypto()
+      "selectionKey": "anchorust",
+      "method": 'getByCrypto'
     }
   ]
 }

@@ -1,19 +1,16 @@
 import mainData from '../../data/';
 import { calcAverage, calcSlippage } from "../../utilities";
+import getByCrypto from "../../utilities/getByCrypto";
+import getByAfAPI from 'utilities/getByAfAPI';
 
 export default async function handler(req, res) {
 
   const promises = mainData.quotes.map((item,index)=>{
-    return fetch(`${item.source}`)
-      .then(response => response.json())
-      .then(data => {
-        return ({
-          ...item,
-          'sourceId': (index + 1),
-          'buy_price' : data[item.selectionKey].usd,
-          'sell_price': data[item.selectionKey].usd
-        })
-      });
+    if (item.method == 'getByCrypto') {
+      return getByCrypto(item, index)
+    } else if(item.method == 'getByAfAPI') {
+      return getByAfAPI(item,index)
+    }
   });
 
   Promise.all(promises)
@@ -31,7 +28,7 @@ export default async function handler(req, res) {
         });
       });
       const processedData = { 'quotes': response, 'average': processedAverage, 'slippage': processedSlippage };
-      return res.status(200).json(processedData)//[req.query.request]
+      return res.status(200).json(processedData[req.query.request])//[req.query.request]
     })
     .catch(response => res.status(404).json({ 'Error': 'Error retrieving information' }));
 

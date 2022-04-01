@@ -69,7 +69,7 @@ export const Quotes = () => {
             </Text>
             <Text {...{ 'as': 'p', 'color': 'brand2' }}>
               Sell<br />
-              <Text {...{ 'as': 'span', 'fs': 'md', 'fw': '900' }}>{item.buy_price}</Text><br />
+              <Text {...{ 'as': 'span', 'fs': 'md', 'fw': '900' }}>{item.sell_price}</Text><br />
               <Text {...{ 'as': 'span', 'fs': 'xs', 'color': 'neutral' }}>{slippageData[0].sell_price_slippage}% of average</Text>
             </Text>
           </QuoteStyled>
