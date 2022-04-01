@@ -36,11 +36,11 @@ export const Average = () => {
       <Text {...{'as':'h2','fs':'lg','fw':'900'}}>USD BLUE <Text {...{'as':'span','fs':'sm'}}>Price Average</Text></Text>
       <div>
         <Text {...{'as':'p','fs':'md','color':'brand1'}}>
-          Buy at<br />
+          Buying at<br />
           <Text {...{ 'as': 'span', 'fs': 'lg', 'fw': '900'}}>{averages ? averages.average_buy_price : '...'}</Text>            
         </Text>
         <Text {...{'as':'p','fs':'md' }}>
-          Sell at<br />
+          Selling at<br />
           <Text {...{ 'as': 'span', 'fs': 'lg', 'fw': '900' }}>{averages ? averages.average_sell_price : '...'}</Text>
         </Text>
       </div>

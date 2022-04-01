@@ -2,6 +2,7 @@ import mainData from '../../data/';
 import { calcAverage, calcSlippage } from "../../utilities";
 import getByCrypto from "../../utilities/getByCrypto";
 import getByAfAPI from 'utilities/getByAfAPI';
+import getByScrapper from 'utilities/getByScrapper';
 
 export default async function handler(req, res) {
 
@@ -10,6 +11,8 @@ export default async function handler(req, res) {
       return getByCrypto(item, index)
     } else if(item.method == 'getByAfAPI') {
       return getByAfAPI(item,index)
+    } else if (item.method == 'getByScrapper') {
+      return getByScrapper(item, index)
     }
   });
 
