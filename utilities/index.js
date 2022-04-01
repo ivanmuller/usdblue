@@ -4,6 +4,6 @@ export const calcAverage = (arr, column) => {
 }
 
 export const calcSlippage = (average, original) => {
-  const result = ((average - original) / original) * 100;
+  const result = ((original - average) / average) * 100;
   return Math.round(result * 100) / 100;
 }
