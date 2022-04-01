@@ -31,7 +31,7 @@ export default async function handler(req, res) {
         });
       });
       const processedData = { 'quotes': response, 'average': processedAverage, 'slippage': processedSlippage };
-      return res.status(200).json(processedData[req.query.request])
+      return res.status(200).json(processedData)//[req.query.request]
     })
     .catch(response => res.status(404).json({ 'Error': 'Error retrieving information' }));
 

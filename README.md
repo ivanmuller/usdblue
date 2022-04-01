@@ -1,5 +1,5 @@
 sería mas fácil meter el slippage en el primer objeto
-auto-reload
+date dinamica
 error handling
 redux?
 typescript

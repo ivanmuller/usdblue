@@ -7,9 +7,16 @@ export const AverageStyled = styled(Card)`
   padding-bottom:calc(${settings.gap} + 3.2rem);
   h2 {
     margin-right:auto;
+    span {
+      display:block;
+    }
   }
   h3,h4 {
     margin-bottom:${settings.gap};
+  }
+  > div {
+    display:flex;
+    gap:${settings.gap};
   }
   .date {
     position:absolute;

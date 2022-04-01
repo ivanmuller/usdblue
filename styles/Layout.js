@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 
 export const MainStyled = styled.div`
   min-height: calc(100vh - ${settings.headerHeight});
-  padding:5rem 0 10rem;
+  padding:${settings.gap} 0 10rem;
   background:${settings.colors.white};
   overflow:auto;
 `
@@ -47,6 +47,7 @@ export const Card = styled.article`
 export const Text = styled.span`
   margin:${props => props.margin || "0 0 0 0"};
   padding:0;
+  color:${props => settings.colors[props.color] || ""};
   font-weight:${props => props.fw || "300"};
   font-size: ${props => settings.fs[props.fs] || settings.fs["sm"]};
 `
