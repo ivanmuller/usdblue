@@ -7,6 +7,10 @@ import { Text } from '@root/styles/Layout';
 export default function Home() {
   return (
     <>
+      <Head>
+        <title>Usd Blue</title>
+      </Head>
+
       <Wrapper>
         <Average />
         <Text as="h3" fw="900" fs="md" margin="0 0 2.4rem">📰 Sources</Text>
