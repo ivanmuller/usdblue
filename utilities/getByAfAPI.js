@@ -1,6 +1,7 @@
 const getByAfAPI = (item,index) => {
+  const { source, sourceName, selectionKey1, selectionKey2, selectionFilter } = item
 
-  return fetch(item.source)
+  return fetch(source)
   .then(response => {
     if (!response.ok) {
       return {'error':response.status}
@@ -9,14 +10,13 @@ const getByAfAPI = (item,index) => {
     }
   })
   .then(data => {
-    const filtered = data.filter((el)=> el.nombre === item.selectionFilter)[0]
-    const { source, sourceName } = item
+    const filtered = data.filter((el)=> el.nombre === selectionFilter)[0]
     return ({  
       source, 
       sourceName,
       'sourceId': (index + 1),
-      'buy_price': parseFloat(filtered[item.selectionKey1]),
-      'sell_price': parseFloat(filtered[item.selectionKey2])
+      'buy_price': parseFloat(filtered[selectionKey1]),
+      'sell_price': parseFloat(filtered[selectionKey2])
     })
   });
 }

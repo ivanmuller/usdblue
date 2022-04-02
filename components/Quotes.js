@@ -58,19 +58,21 @@ export const Quotes = () => {
       {isLoading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       {(quotes && slippages) && quotes.map((item) => {
-        const slippageData = slippages.filter((slipEl) => slipEl.sourceId == item.sourceId)
+        const { sourceId,sourceName,buy_price,sell_price } = item
+        const slippageData = slippages.filter((slipEl) => slipEl.sourceId == sourceId)[0]
+        const { buy_price_slippage, sell_price_slippage } = slippageData;
         return(
-          <QuoteStyled direction="column" key={item.sourceId}>
-            <Text {...{ 'as': 'h4', 'fw': '900'}}>{item.sourceName}</Text>
+          <QuoteStyled direction="column" key={sourceId}>
+            <Text {...{ 'as': 'h4', 'fw': '900' }}>&bull; {sourceName}</Text>
             <Text {...{ 'as': 'p', 'color': 'brand1' }}>
               Buy<br />
-              <Text {...{ 'as': 'span', 'fs':'md', 'fw': '900' }}>{item.buy_price}</Text><br />
-              <Text {...{ 'as': 'span', 'fs': 'xs', 'color': 'neutral'}}>{slippageData[0].buy_price_slippage}% of average</Text>
+              <Text {...{ 'as': 'span', 'fs': 'md', 'fw': '900' }}>{buy_price}</Text><br />
+              <Text {...{ 'as': 'span', 'fs': 'xs', 'color': 'neutral' }}>{buy_price_slippage > 0 && "+"}{buy_price_slippage}% of average</Text>
             </Text>
             <Text {...{ 'as': 'p', 'color': 'brand2' }}>
               Sell<br />
-              <Text {...{ 'as': 'span', 'fs': 'md', 'fw': '900' }}>{item.sell_price}</Text><br />
-              <Text {...{ 'as': 'span', 'fs': 'xs', 'color': 'neutral' }}>{slippageData[0].sell_price_slippage}% of average</Text>
+              <Text {...{ 'as': 'span', 'fs': 'md', 'fw': '900' }}>{sell_price}</Text><br />
+              <Text {...{ 'as': 'span', 'fs': 'xs', 'color': 'neutral' }}>{sell_price_slippage > 0 && "+"}{sell_price_slippage}% of average</Text>
             </Text>
           </QuoteStyled>
         )}

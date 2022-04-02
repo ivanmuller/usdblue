@@ -1,22 +1,27 @@
-const getByScrapper = (item,index) => {
+const cheerio = require('cheerio')
 
-  return fetch(item.source)
+const getByScrapper = (item,index) => {
+  const { source, sourceName, selectionKey1, selectionKey2, selectionFilter } = item
+
+  return fetch(source)
   .then(response => {
     if (!response.ok) {
-      return {'error':response.status}
+      return {'error': response.status}
     } else {
-      return response.json()
+      return response.text()
     }
   })
   .then(data => {
-    const filtered = data.filter((el)=> el.nombre === item.selectionFilter)[0]
-    const { source, sourceName } = item
+    const $ = cheerio.load(data)
+    const re = new RegExp(selectionFilter, "g");
+    const buyValue = $(selectionKey1).text().replace(re, '');
+    const sellValue = $(selectionKey2).text().replace(re, '');
     return ({  
       source, 
       sourceName,
       'sourceId': (index + 1),
-      'buy_price': parseFloat(filtered[item.selectionKey1]),
-      'sell_price': parseFloat(filtered[item.selectionKey2])
+      'buy_price': parseFloat(buyValue),
+      'sell_price': parseFloat(sellValue)
     })
   });
 }
