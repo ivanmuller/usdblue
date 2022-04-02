@@ -6,6 +6,9 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <title>Usd Blue</title>
+          <meta name="description" content="2022 Iván Müller Challenge" />
+          <link rel="icon" href="/favicon.png" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
           <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;900&display=swap" rel="stylesheet" />

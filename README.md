@@ -1,7 +1,6 @@
-pumppeteer
 swr
 cache
-error handling
 
+error handling
 typescript
 last fetched data time

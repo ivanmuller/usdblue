@@ -22,7 +22,8 @@ export const Quotes = () => {
     })
     .then(json => {
       setQuotes(json)
-      setIsLoading(false) // warning -> two loading and error handlers
+      setIsLoading(false) // warning -> two loading and error handlers | make and object
+      setError("")
     });
   }
 
@@ -40,6 +41,7 @@ export const Quotes = () => {
     .then(json => {
       setSlippage(json)
       setIsLoading(false)
+      setError("")
     });
   }
 
