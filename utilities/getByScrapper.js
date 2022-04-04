@@ -13,9 +13,9 @@ const getByScrapper = (item,index) => {
   })
   .then(data => {
     const $ = cheerio.load(data)
-    const re = new RegExp(selectionFilter, "g");
-    const buyValue = $(selectionKey1).text().replace(re, '');
-    const sellValue = $(selectionKey2).text().replace(re, '');
+    const re = new RegExp(selectionFilter, "g")
+    const buyValue = $(selectionKey1).text().replace(re, '')
+    const sellValue = $(selectionKey2).text().replace(re, '')
     return ({  
       source, 
       sourceName,

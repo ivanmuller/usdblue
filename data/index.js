@@ -1,4 +1,4 @@
-export default {
+const mainData = {
   "quotes" : [
     {
       "source": "https://mercados.ambito.com/home/general",  
@@ -33,3 +33,5 @@ export default {
     }*/
   ]
 }
+
+export default mainData

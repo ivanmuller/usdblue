@@ -1,7 +1,7 @@
-import mainData from '../../data/';
-import { calcAverage, calcSlippage } from "../../utilities";
-import getByJson from 'utilities/getByJson';
-import getByScrapper from 'utilities/getByScrapper';
+import mainData from '@root/data/';
+import { calcAverage, calcSlippage } from "@root/utilities";
+import getByJson from '@root/utilities/getByJson';
+import getByScrapper from '@root/utilities/getByScrapper';
 
 export default async function handler(req, res) {
 
