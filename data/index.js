@@ -3,7 +3,7 @@ export default {
     {
       "source": "https://mercados.ambito.com/home/general",  
       "sourceName": "Ambito Financiero",
-      "method": 'getByAfAPI',
+      "method": 'getByJson',
       "selectionKey1": "val1",
       "selectionKey2": "val2",
       "selectionFilter": "Dólar Informal",
@@ -24,5 +24,12 @@ export default {
       "selectionKey2": ".markets.boxed .sell .sell-value",
       "selectionFilter": "\\$"
     },
+    /*{
+      "source": "https://api-contenidos.lanacion.com.ar/json/V3/economia/cotizacionblue/DBLUE",
+      "sourceName": "La Nación",
+      "method": 'getByJson',
+      "selectionKey1": "compra",
+      "selectionKey2": "venta"
+    }*/
   ]
 }

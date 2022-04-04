@@ -1,4 +1,4 @@
-const getByAfAPI = (item,index) => {
+const getByJson = (item,index) => {
   const { source, sourceName, selectionKey1, selectionKey2, selectionFilter } = item
 
   return fetch(source)
@@ -10,7 +10,10 @@ const getByAfAPI = (item,index) => {
     }
   })
   .then(data => {
-    const filtered = data.filter((el)=> el.nombre === selectionFilter)[0]
+    let filtered = data
+    if (selectionFilter){
+      filtered = data.filter((el) => el.nombre === selectionFilter)[0]
+    }
     return ({  
       source, 
       sourceName,
@@ -21,4 +24,4 @@ const getByAfAPI = (item,index) => {
   });
 }
 
-export default getByAfAPI;
+export default getByJson;

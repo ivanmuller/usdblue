@@ -1,13 +1,13 @@
 import mainData from '../../data/';
 import { calcAverage, calcSlippage } from "../../utilities";
-import getByAfAPI from 'utilities/getByAfAPI';
+import getByJson from 'utilities/getByJson';
 import getByScrapper from 'utilities/getByScrapper';
 
 export default async function handler(req, res) {
 
   const promises = mainData.quotes.map((item,index)=>{
-    if(item.method == 'getByAfAPI') {
-      return getByAfAPI(item,index)
+    if(item.method == 'getByJson') {
+      return getByJson(item,index)
     } else if (item.method == 'getByScrapper') {
       return getByScrapper(item, index)
     }
