@@ -16,7 +16,7 @@ export const Average = () => {
           Buying at<br />
           <Text {...{ 'as': 'span', 'fs': 'lg', 'fw': '900'}}>{averages ? averages.average_buy_price : '...'}</Text>            
         </Text>
-        <Text {...{'as':'p','fs':'md' }}>
+        <Text {...{'as':'p','fs':'md','color':'brand2'}}>
           Selling at<br />
           <Text {...{ 'as': 'span', 'fs': 'lg', 'fw': '900' }}>{averages ? averages.average_sell_price : '...'}</Text>
         </Text>

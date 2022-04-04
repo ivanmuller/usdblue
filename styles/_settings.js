@@ -11,8 +11,8 @@ export default {
   'colors': {
     'neutral': '#000',
     'brand1': '#4C4D86',
-    'brand2': '#AEA1C6',
-    'brandLight': '#B4E0E8',
+    'brand2': '#820263',
+    'brandLight': '#ccebf1',
     'white': '#FFF',
     'light': '#EEEEEE'
   }

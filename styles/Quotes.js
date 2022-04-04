@@ -7,6 +7,9 @@ export const QuotesListStyled = styled.div`
   flex-wrap:wrap;
   gap:${settings.gap};
   flex-direction:column;
+  > p {
+    flex:1 1 100%;
+  }
   @media screen and (min-width:${settings.wrapperWidth}){
     flex-direction:row;
   }

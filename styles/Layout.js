@@ -22,7 +22,7 @@ export const FooterStyled = styled.footer`
   bottom:0;
   width:100%;
   background:${settings.colors.light};
-  border-top:1px solid ${settings.colors.brand2};
+  border-top:1px solid ${settings.colors.neutral};
   ${Wrapper} {
     height:100%;
     height:${settings.headerHeight};
