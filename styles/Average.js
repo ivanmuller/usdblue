@@ -33,7 +33,7 @@ export const AverageStyled = styled(Card)`
     display:flex;
     justify-content: space-between;
     span:nth-child(2){
-      color:#ffaba7;
+      color:${settings.colors.brand2};
     }
   }
 `
