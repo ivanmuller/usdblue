@@ -1,64 +1,18 @@
-import { React, useEffect, useState } from 'react';
+import { React } from 'react';
 import { Text } from '@root/styles/Layout';
 import { QuotesListStyled } from '@root/styles/Quotes';
 import { QuoteStyled } from '@root/styles/Quotes';
+import useSWR from 'swr';
 
 export const Quotes = () => {
-  const [quotes, setQuotes] = useState()
-  const [slippages, setSlippage] = useState()
-  const [error, setError] = useState("")
-  const [isLoading, setIsLoading] = useState(true)
-
-  const getQuotes = () => {
-    setQuotes()
-    const fetchData = fetch('/api/quotes')
-    fetchData.then(response => {
-      if (!response.ok) {
-        setError(response.status)
-        setIsLoading(false)
-      } else {
-        return response.json()
-      }
-    })
-    .then(json => {
-      setQuotes(json)
-      setIsLoading(false) // warning -> two loading and error handlers | make and object
-      setError("")
-    });
-  }
-
-  const getSlippage = () => {
-    setSlippage()
-    const fetchData = fetch('/api/slippage')
-    fetchData.then(response => {
-      if (!response.ok) {
-        setError(response.status)
-        setIsLoading(false)
-      } else {
-        return response.json()
-      }
-    })
-    .then(json => {
-      setSlippage(json)
-      setIsLoading(false)
-      setError("")
-    });
-  }
-
-  useEffect(() => {
-    getQuotes();
-    getSlippage();
-    const interval = setInterval(() => {
-      getQuotes();
-      getSlippage();
-    }, 15000);
-    return () => clearInterval(interval);
-  }, []);
+  const { data : quotes, error : errorQuotes } = useSWR('/api/quotes')
+  const { data : slippages, error: errorSlippage } = useSWR('/api/slippage')
+  const isLoading = !quotes && !slippages
 
   return (
     <QuotesListStyled>
       {isLoading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
+      {errorQuotes && <p>{errorQuotes.message}</p>}
       {(quotes && slippages) && quotes.map((item) => {
         const { sourceId,sourceName,buy_price,sell_price } = item
         const slippageData = slippages.filter((slipEl) => slipEl.sourceId == sourceId)[0]

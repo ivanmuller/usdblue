@@ -4,7 +4,7 @@ import { Card } from './Layout.js';
 
 export const AverageStyled = styled(Card)`
   background:${settings.colors.brandLight};
-  padding: calc(${settings.gap} * 2);
+  padding: ${settings.gap};
   padding-bottom:calc(${settings.gap} + 3.2rem);
   h2 {
     margin-right:auto;
@@ -17,6 +17,7 @@ export const AverageStyled = styled(Card)`
   }
   > div {
     display:flex;
+    flex-wrap: wrap;
     gap:${settings.gap};
   }
   .date {
@@ -27,7 +28,12 @@ export const AverageStyled = styled(Card)`
     width:100%;
     height:3.2rem;
     line-height:3.2rem;
-    padding:0 calc(${settings.gap} * 2);
+    padding:0 ${settings.gap};
     left:0;
+    display:flex;
+    justify-content: space-between;
+    span:nth-child(2){
+      color:#ffaba7;
+    }
   }
 `

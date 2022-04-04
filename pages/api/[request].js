@@ -28,6 +28,7 @@ export default async function handler(req, res) {
         });
       });
       const processedData = { 'quotes': response, 'average': processedAverage, 'slippage': processedSlippage };
+      res.setHeader('Cache-Control', 's-maxage=60')
       return res.status(200).json(processedData[req.query.request])//[req.query.request]
     })
     .catch(error => res.status(404).json({ 'Error': error }));
