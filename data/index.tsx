@@ -1,6 +1,7 @@
 const mainData = {
   "quotes" : [
     {
+      "enabled": true,
       "source": "https://mercados.ambito.com/home/general",  
       "sourceName": "Ambito Financiero",
       "method": 'getByJson',
@@ -9,6 +10,7 @@ const mainData = {
       "selectionFilter": "Dólar Informal",
     },
     {
+      "enabled": true,
       "source": "https://dolarhoy.com/",
       "sourceName": "Dólar Hoy",
       "method": 'getByScrapper',
@@ -17,6 +19,7 @@ const mainData = {
       "selectionFilter": "\\$"
     },
     {
+      "enabled": true,
       "source": "https://www.cronista.com/MercadosOnline/moneda.html?id=ARSB",
       "sourceName": "Cronista",
       "method": 'getByScrapper',
@@ -24,13 +27,14 @@ const mainData = {
       "selectionKey2": ".markets.boxed .sell .sell-value",
       "selectionFilter": "\\$"
     },
-    /*{
+    {
+      "enabled": false,
       "source": "https://api-contenidos.lanacion.com.ar/json/V3/economia/cotizacionblue/DBLUE",
       "sourceName": "La Nación",
       "method": 'getByJson',
       "selectionKey1": "compra",
       "selectionKey2": "venta"
-    }*/
+    }
   ]
 }
 

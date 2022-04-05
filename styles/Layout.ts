@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import settings from '/styles/_settings';
+import styled from "styled-components"
+import settings from 'styles/_settings'
 
 // --- Layout --- //
 export const Wrapper = styled.div`

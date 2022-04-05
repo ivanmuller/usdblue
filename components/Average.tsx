@@ -1,7 +1,7 @@
 import React from 'react'
-import { Text } from '/styles/Layout'
-import { AverageStyled } from '/styles/Average'
-import useSWR from 'swr';
+import { Text } from 'styles/Layout'
+import { AverageStyled } from 'styles/Average'
+import useSWR from 'swr'
 
 export const Average = () => {
   const today = new Date().toLocaleDateString()

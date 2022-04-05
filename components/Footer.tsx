@@ -1,4 +1,4 @@
-import { Wrapper, FooterStyled } from "/styles/Layout";
+import { Wrapper, FooterStyled } from "styles/Layout"
 
 export default function Footer(){
   return (

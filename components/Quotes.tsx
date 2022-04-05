@@ -1,8 +1,8 @@
-import React from 'react';
-import { Text } from '/styles/Layout';
-import { QuotesListStyled } from '/styles/Quotes';
-import { QuoteStyled } from '/styles/Quotes';
-import useSWR from 'swr';
+import React from 'react'
+import { Text } from 'styles/Layout'
+import { QuotesListStyled } from 'styles/Quotes'
+import { QuoteStyled } from 'styles/Quotes'
+import useSWR from 'swr'
 
 export const Quotes = () => {
   const { data : quotes, error : errorQuotes } = useSWR('/api/quotes')
@@ -13,7 +13,8 @@ export const Quotes = () => {
     <QuotesListStyled>
       {isLoading && <p>Loading...</p>}
       {errorQuotes && <p>{errorQuotes.message}</p>}
-      {(quotes && slippages) && quotes.map((item) => {
+      {errorSlippage && <p>{errorSlippage.message}</p>}
+      {(quotes && slippages) && quotes.map((item: any) => {
         const { sourceId,sourceName,buy_price,sell_price } = item
         const slippageData = slippages.filter((slipEl) => slipEl.sourceId == sourceId)[0]
         const { buy_price_slippage, sell_price_slippage } = slippageData;

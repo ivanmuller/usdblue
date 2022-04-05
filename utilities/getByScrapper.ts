@@ -1,6 +1,6 @@
 const cheerio = require('cheerio')
 
-const getByScrapper = (item,index) => {
+const getByScrapper = (item:any,index:number) => {
   const { source, sourceName, selectionKey1, selectionKey2, selectionFilter } = item
 
   return fetch(source)

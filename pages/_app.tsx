@@ -1,9 +1,9 @@
 import type { AppProps } from 'next/app'
-import '/styles/_globals.css'
+import 'styles/_globals.css'
 import { SWRConfig } from 'swr'
-import { fetcher } from '/utilities';
-import Footer from "/components/Footer";
-import { MainStyled } from "/styles/Layout";
+import { fetcher } from 'utilities';
+import Footer from "components/Footer";
+import { MainStyled } from "styles/Layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

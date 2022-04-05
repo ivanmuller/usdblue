@@ -1,13 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import mainData from '/data'
-import { calcAverage, calcSlippage } from "/utilities"
-import getByJson from '/utilities/getByJson'
-import getByScrapper from '/utilities/getByScrapper'
+import mainData from 'data'
+import { calcAverage, calcSlippage } from "utilities"
+import getByJson from 'utilities/getByJson'
+import getByScrapper from 'utilities/getByScrapper'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
-  const promises = mainData.quotes.map((item,index:number)=>{
+  const mainDataEnabled = mainData.quotes.filter((item:any) => item.enabled)
+  const promises = mainDataEnabled.map((item:any,index:number)=>{
     if(item.method == 'getByJson') {
       return getByJson(item,index)
     } else if (item.method == 'getByScrapper') {
@@ -21,7 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         'average_buy_price': calcAverage(response, 'buy_price'),
         'average_sell_price': calcAverage(response, 'sell_price') 
       }
-      const processedSlippage = response.map((item, index)=>{
+      const processedSlippage = response.map((item:any, index:number)=>{
         return ({ 
           'sourceId': index + 1, 
           'buy_price_slippage': calcSlippage(processedAverage.average_buy_price, item.buy_price), 

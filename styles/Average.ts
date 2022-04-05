@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import settings from '/styles/_settings';
-import { Card } from '/styles/Layout';
+import styled from "styled-components"
+import settings from 'styles/_settings'
+import { Card } from 'styles/Layout'
 
 export const AverageStyled = styled(Card)`
   background:${settings.colors.brandLight};
