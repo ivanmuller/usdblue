@@ -1,6 +1,6 @@
-import { React } from 'react';
-import { Text } from '@root/styles/Layout';
-import { AverageStyled } from '@root/styles/Average';
+import React from 'react'
+import { Text } from '/styles/Layout'
+import { AverageStyled } from '/styles/Average'
 import useSWR from 'swr';
 
 export const Average = () => {

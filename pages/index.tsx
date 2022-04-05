@@ -1,8 +1,8 @@
 import Head from 'next/head'
-import { Wrapper } from "@root/styles/Layout"
-import { Quotes } from "@root/components/Quotes"
-import { Average } from "@root/components/Average"
-import { Text } from '@root/styles/Layout';
+import { Wrapper } from "/styles/Layout"
+import { Quotes } from "/components/Quotes"
+import { Average } from "/components/Average"
+import { Text } from '/styles/Layout';
 
 export default function Home() {
   return (

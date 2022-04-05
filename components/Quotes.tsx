@@ -1,7 +1,7 @@
-import { React } from 'react';
-import { Text } from '@root/styles/Layout';
-import { QuotesListStyled } from '@root/styles/Quotes';
-import { QuoteStyled } from '@root/styles/Quotes';
+import React from 'react';
+import { Text } from '/styles/Layout';
+import { QuotesListStyled } from '/styles/Quotes';
+import { QuoteStyled } from '/styles/Quotes';
 import useSWR from 'swr';
 
 export const Quotes = () => {

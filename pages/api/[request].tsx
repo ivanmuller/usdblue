@@ -1,11 +1,13 @@
-import mainData from '@root/data/';
-import { calcAverage, calcSlippage } from "@root/utilities";
-import getByJson from '@root/utilities/getByJson';
-import getByScrapper from '@root/utilities/getByScrapper';
+import type { NextApiRequest, NextApiResponse } from 'next'
 
-export default async function handler(req, res) {
+import mainData from '/data'
+import { calcAverage, calcSlippage } from "/utilities"
+import getByJson from '/utilities/getByJson'
+import getByScrapper from '/utilities/getByScrapper'
 
-  const promises = mainData.quotes.map((item,index)=>{
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+
+  const promises = mainData.quotes.map((item,index:number)=>{
     if(item.method == 'getByJson') {
       return getByJson(item,index)
     } else if (item.method == 'getByScrapper') {
