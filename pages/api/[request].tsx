@@ -5,7 +5,7 @@ import getByJson from 'utilities/getByJson'
 import getByScrapper from 'utilities/getByScrapper'
 import type { Average as AverageType, Slippage as SlippageType, Quote, QuoteSetting } from 'interfaces'
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: NextApiRequest | any, res: NextApiResponse) {
 
   const mainDataEnabled = mainData.quotes.filter((item: QuoteSetting) => item.enabled)
   const promises = mainDataEnabled.map((item: QuoteSetting,index:number)=>{
@@ -32,7 +32,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
       const processedData = { 'quotes': response, 'average': processedAverage, 'slippage': processedSlippage };
       res.setHeader('Cache-Control', 's-maxage=60')
-      return res.status(200).json(processedData[+req.query.request])//[req.query.request]
+      return res.status(200).json(processedData[req.query.request])//[req.query.request]
     })
     .catch(error => res.status(404).json({ 'Error': error }));
 }
