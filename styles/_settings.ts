@@ -1,12 +1,12 @@
 export default {
   'headerHeight' : '70px',
-  'wrapperWidth': '720px',
-  'gap': '2.4rem',
+  'wrapperWidth': '840px',
+  'gap': '3rem',
   'fs': {
-    'xs': '1.4rem',
-    'sm' : '1.6rem',
-    'md': '2.4rem',
-    'lg': '3.2rem'
+    'xs': '1.6rem',
+    'sm' : '1.8rem',
+    'md': '2.6rem',
+    'lg': '3.5rem'
   },
   'colors': {
     'neutral': '#000',
