@@ -1,9 +1,9 @@
-export const calcAverage = (arr: any, column: string) => {
+export const calcAverage = (arr: any, column: string): number => {
   const result = arr.reduce((acc, el) => acc + el[column], 0) / arr.length
   return Math.round(result * 100) / 100
 }
 
-export const calcSlippage = (average : number, original : number) => {
+export const calcSlippage = (average: number, original: any): number => {
   const result = ((original - average) / average) * 100
   return Math.round(result * 100) / 100
 }

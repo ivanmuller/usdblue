@@ -2,11 +2,12 @@ import React from 'react'
 import { Text } from 'styles/Layout'
 import { AverageStyled } from 'styles/Average'
 import useSWR from 'swr'
+import type { Average as AverageType } from 'interfaces'
 
 export const Average = () => {
   const today = new Date().toLocaleDateString()
-  const { data, error } = useSWR('/api/average')
-  const averages = data
+  const { data, error } = useSWR<AverageType>('/api/average')
+  const averages: AverageType = data
 
   return (
     <AverageStyled>
