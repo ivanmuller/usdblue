@@ -1,5 +1,4 @@
-const mainData = {
-  "quotes" : [
+const mainData = [
     {
       "enabled": true,
       "source": "https://mercados.ambito.com/home/general",  
@@ -28,14 +27,13 @@ const mainData = {
       "selectionFilter": "\\$"
     },
     {
-      "enabled": false,
+      "enabled": true,
       "source": "https://api-contenidos.lanacion.com.ar/json/V3/economia/cotizacionblue/DBLUE",
       "sourceName": "La Nación",
       "method": 'getByJson',
       "selectionKey1": "compra",
       "selectionKey2": "venta"
     }
-  ]
-}
+]
 
 export default mainData

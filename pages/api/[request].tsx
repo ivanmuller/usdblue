@@ -8,6 +8,7 @@ import type { Average as AverageType, Slippage as SlippageType, Quote, QuoteSett
 export default async function handler(req: NextApiRequest | any, res: NextApiResponse) {
 
   const mainDataEnabled = mainData.quotes.filter((item: QuoteSetting) => item.enabled)
+  
   const promises = mainDataEnabled.map((item: QuoteSetting,index:number)=>{
     if(item.method == 'getByJson') {
       return getByJson(item,index)
@@ -30,7 +31,7 @@ export default async function handler(req: NextApiRequest | any, res: NextApiRes
           'source': item.source
         });
       });
-      const processedData = { 'quotes': response, 'average': processedAverage, 'slippage': processedSlippage };
+      const processedData = { 'quotes': response, 'average': processedAverage, 'slippage': processedSlippage }
       res.setHeader('Cache-Control', 's-maxage=60')
       return res.status(200).json(processedData[req.query.request])//[req.query.request]
     })

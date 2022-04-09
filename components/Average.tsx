@@ -8,7 +8,7 @@ export const Average = () => {
   const today = new Date().toLocaleDateString()
   const { data, error } = useSWR<AverageType>('/api/average')
   const averages: AverageType = data
-
+ 
   return (
     <AverageStyled>
       <Text {...{'as':'h2','fs':'lg','fw':'900'}}>USD BLUE <Text {...{'as':'span','fs':'sm'}}>Price Average</Text></Text>
