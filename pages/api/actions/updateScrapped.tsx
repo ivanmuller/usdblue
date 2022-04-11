@@ -1,11 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import sheetsUpdate from 'utilities/sheetsUpdate'
+import gSheetsUpdater from 'utilities/gSheetsUpdater'
 import mainData from 'data'
-import formatRowsForGsheets from "utilities/formatRowsForGsheets"
+import formatScrappedForGsheets from "utilities/formatScrappedForGsheets"
 import getByJson from 'utilities/getByJson'
 import getByScrapper from 'utilities/getByScrapper'
-import type { Average as AverageType, Slippage as SlippageType, Quote, QuoteSetting } from 'interfaces'
+import type { QuoteSetting } from 'interfaces'
 
 export default async function Updater(req: NextApiRequest | any, res: NextApiResponse) {
 
@@ -21,10 +21,9 @@ export default async function Updater(req: NextApiRequest | any, res: NextApiRes
 
   Promise.all(promises)
   .then(response => {
-    sheetsUpdate(formatRowsForGsheets(response))
+    const rowsToUpdate = formatScrappedForGsheets(response);
+    gSheetsUpdater(rowsToUpdate)
+    return res.status(200).json({ 'message': 'done' })
   })
-    .catch(error => res.status(404).json({ 'Error': error }));
-    
-  return res.status(200).json({'message':'done'})
-
+  .catch(error => res.status(404).json({ 'Error': error }));
 }
