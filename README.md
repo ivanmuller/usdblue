@@ -3,6 +3,7 @@
 👷‍♂️ Work in progress
 
 A webapp to show the unofficial price of USD in Argentina from different sources and different ascrapping methods.
+
 [Demo vailable here](https://usdblue.vercel.app)
 
 ![screenshot](http://ivanmuller.me/images/blueusd.png)
@@ -17,5 +18,5 @@ A webapp to show the unofficial price of USD in Argentina from different sources
 ## To do
 
 - [ ] Google Sheets as Database
-- [ ] Averages History data and charts
+- [ ] Average history data and charts
 - [ ] Typescript
