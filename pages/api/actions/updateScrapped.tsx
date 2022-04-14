@@ -5,13 +5,13 @@ import mainData from 'data'
 import formatScrappedForGsheets from "utilities/formatScrappedForGsheets"
 import getByJson from 'utilities/getByJson'
 import getByScrapper from 'utilities/getByScrapper'
-import type { QuoteSetting } from 'interfaces'
+import type { SourceSetting } from 'interfaces'
 
-export default async function Updater(req: NextApiRequest | any, res: NextApiResponse) {
+export default async function Updater(req: NextApiRequest, res: NextApiResponse) {
 
-  const mainDataEnabled = mainData.filter((item: QuoteSetting) => item.enabled)
+  const mainDataEnabled = mainData.filter((item: SourceSetting) => item.enabled)
 
-  const promises = mainDataEnabled.map((item: QuoteSetting, index: number) => {
+  const promises = mainDataEnabled.map((item: SourceSetting, index: number) => {
     if (item.method == 'getByJson') {
       return getByJson(item, index)
     } else if (item.method == 'getByScrapper') {

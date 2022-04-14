@@ -1,4 +1,4 @@
-export type Quote = {
+export type Source = {
   sourceId: number
   source: string
   sourceName: string
@@ -8,7 +8,7 @@ export type Quote = {
   sell_price_slippage: number
 }
 
-export type QuoteSetting = {
+export type SourceSetting = {
   enabled: boolean
   source: string
   sourceName: string
