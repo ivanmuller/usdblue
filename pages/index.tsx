@@ -11,7 +11,7 @@ export default function Home() {
   
   const { data, error } = useSWR<Source[]>('/api/scrapped')
   const isLoading: boolean = !data
-  let processedData = { 'sources' : data }
+  let processedData : any = { 'sources' : data }
 
   if (!isLoading){
     const processedAverage: AverageType = {
