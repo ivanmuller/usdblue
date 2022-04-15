@@ -3,6 +3,7 @@ import { Text } from 'styles/Layout'
 import { AverageStyled } from 'styles/Average'
 
 export const Average = ({averages}) => {
+  console.log(averages,'averages')
   const today = new Date().toLocaleDateString()
  
   return (

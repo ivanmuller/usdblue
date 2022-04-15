@@ -2,7 +2,8 @@ const cheerio = require('cheerio')
 
 const getByScrapper = (item:any,index:number) => {
   const { source, sourceName, selectionKey1, selectionKey2, selectionFilter } = item
-
+  const today = new Date().toLocaleString()
+  
   return fetch(source)
   .then((response : any) => {
     if (!response.ok) {
@@ -17,8 +18,8 @@ const getByScrapper = (item:any,index:number) => {
     const buyValue = $(selectionKey1).text().replace(re, '')
     const sellValue = $(selectionKey2).text().replace(re, '')
     return ({  
-      source, 
       sourceName,
+      'date': today,
       'sourceId': (index + 1),
       'buy_price': parseFloat(buyValue),
       'sell_price': parseFloat(sellValue)

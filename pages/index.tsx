@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import useSWR from 'swr'
-
 import { Wrapper } from "styles/Layout"
 import { Sources } from "components/Sources"
 import { Average } from "components/Average"
@@ -9,7 +8,7 @@ import { calcSlippage, calcAverage } from 'utilities'
 import type { Average as AverageType, Source } from 'interfaces'
 
 export default function Home() {
-
+  
   const { data, error } = useSWR<Source[]>('/api/scrapped')
   const isLoading: boolean = !data
   let processedData = { 'sources' : data }

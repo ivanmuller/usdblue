@@ -18,15 +18,3 @@ export const fetcher = async (url:string) => {
   }
   return res.json()
 }
-
-export const transformToObject = (result) => {
-  var rows = [];
-  for (var i=1; i<result.length; i++) {
-    var rowObject = {};
-    for (var j=0; j<result[i].length; j++) {
-      rowObject[result[0][j]] = result[i][j];
-    }
-    rows.push(rowObject);
-  }
-  return rows;
-}

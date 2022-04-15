@@ -1,12 +1,42 @@
 const dev = process.env.NODE_ENV !== 'production';
 
 export default {
-  host: dev ? 'http://localhost:3000' : '',
-  google_sheet_id: '1ZUwivoBYBgd_pQuAvRDDR5QOm8d4Dk2rRG9-GrKVGPM',
-  google_access_token: 'ya29.A0ARrdaM-7pkaJFydnVyx6cBmOvyYt5ccGqCxhNx7rn58WExAdD3fNcnrhcnaGpOLm9B9leCNEjeiOTu9eag5DkQfDwG_j-rzFoDFuE_2qpchSmk72bxRPzroHHmRXQA4i1HrLCQWKj3wI2rRBG_eRKrV2x7v5',
-  google_sheet_tabs: {
-    'sources': 1194726499,
-    'scrapped': 0,
-    'averages': 193399632
-  }
+  host: dev ? 'http://localhost:3000' : 'https://usdblue.vercel.app',
+  mainData : [
+    {
+      "enabled": true,
+      "source": "https://mercados.ambito.com/home/general",
+      "sourceName": "Ambito Financiero",
+      "method": 'getByJson',
+      "selectionKey1": "val1",
+      "selectionKey2": "val2",
+      "selectionFilter": "Dólar Informal",
+    },
+    {
+      "enabled": true,
+      "source": "https://dolarhoy.com/",
+      "sourceName": "Dólar Hoy",
+      "method": 'getByScrapper',
+      "selectionKey1": ".cotizacion .dolar > .tile:nth-child(1) .values div:nth-child(1) .val",
+      "selectionKey2": ".cotizacion .dolar > .tile:nth-child(1) .values div:nth-child(2) .val",
+      "selectionFilter": "\\$"
+    },
+    {
+      "enabled": true,
+      "source": "https://www.cronista.com/MercadosOnline/moneda.html?id=ARSB",
+      "sourceName": "Cronista",
+      "method": 'getByScrapper',
+      "selectionKey1": ".markets.boxed .buy .buy-value",
+      "selectionKey2": ".markets.boxed .sell .sell-value",
+      "selectionFilter": "\\$"
+    },
+    {
+      "enabled": true,
+      "source": "https://api-contenidos.lanacion.com.ar/json/V3/economia/cotizacionblue/DBLUE",
+      "sourceName": "La Nación",
+      "method": 'getByJson',
+      "selectionKey1": "compra",
+      "selectionKey2": "venta"
+    }
+  ]
 }

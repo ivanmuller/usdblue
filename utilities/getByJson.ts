@@ -1,6 +1,7 @@
 const getByJson = (item:any,index:number) => {
   const { source, sourceName, selectionKey1, selectionKey2, selectionFilter } = item
-
+  const today = new Date().toLocaleString()
+  
   return fetch(source)
   .then(response => {
     if (!response.ok) {
@@ -15,8 +16,8 @@ const getByJson = (item:any,index:number) => {
       filtered = data.filter((el) => el.nombre === selectionFilter)[0]
     }
     return ({  
-      source, 
       sourceName,
+      'date': today,
       'sourceId': (index + 1),
       'buy_price': parseFloat(filtered[selectionKey1]),
       'sell_price': parseFloat(filtered[selectionKey2])

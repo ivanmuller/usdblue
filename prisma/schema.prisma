@@ -10,8 +10,18 @@ datasource db {
   url      = "file:./dev.db"
 }
 
-model Test {
-  id String @id @default (cuid())
-  firstName String
-  lastName String
+model Scrapped {
+  id Int @id @default(autoincrement())
+  sourceId Int
+  date String
+  sourceName String
+  buy_price Float
+  sell_price Float
+}
+
+model Averages {
+  id Int @id @default(autoincrement())
+  date String
+  buy_price Float
+  sell_price Float
 }
