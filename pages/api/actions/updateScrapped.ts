@@ -33,5 +33,5 @@ export default async function Updater(req: NextApiRequest, res: NextApiResponse)
     deleteAndUpdateScrapped()
     return res.status(200).json({ 'message': 'done' })
   })
-  .catch(error => res.status(404).json({ 'Error': error }));
+  .catch(error => res.status(404).json({ 'Error': error.toString() }));
 }

@@ -1,4 +1,5 @@
 import type { AppProps } from 'next/app'
+import settings from 'settings'
 import { SWRConfig } from 'swr'
 import { fetcher } from 'utilities'
 import Footer from "components/Footer"
@@ -7,7 +8,7 @@ import { GlobalStyle } from "styles/GlobalStyle"
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <SWRConfig value={{ fetcher, refreshInterval: 15000 }}>
+    <SWRConfig value={{ fetcher, refreshInterval: settings.swrRefreshInterval }}>
       <GlobalStyle />
       <MainStyled>
         <Component {...pageProps} />

@@ -2,6 +2,7 @@ const dev = process.env.NODE_ENV !== 'production';
 
 export default {
   host: dev ? 'http://localhost:3000' : 'https://usdblue.netlify.com',
+  swrRefreshInterval: 900000,
   mainData : [
     {
       "enabled": true,
