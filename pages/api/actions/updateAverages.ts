@@ -24,8 +24,9 @@ export default async function Updater(req: NextApiRequest, res: NextApiResponse)
         data: ({date: today, buy_price : average_buy_price, sell_price : average_sell_price})
       })
     }
-    updateAverages()
-    res.status(200).json({ 'message': 'Done' })
+    updateAverages().then(() => {
+      res.status(200).json({ 'message': 'Done' })
+    })
   }).catch(error => {
     res.status(404).json({ 'Error': error.toString() })
   })
