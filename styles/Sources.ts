@@ -2,7 +2,7 @@ import styled from "styled-components"
 import settings from 'styles/_settings'
 import { Card } from 'styles/Layout'
 
-export const QuotesListStyled = styled.div`
+export const SourcesListStyled = styled.div`
   display:flex;
   flex-wrap:wrap;
   gap:${settings.gap};
@@ -15,7 +15,7 @@ export const QuotesListStyled = styled.div`
   }
 `
 
-export const QuoteStyled = styled(Card)`
+export const SourceStyled = styled(Card)`
   background:${settings.colors.light};
   margin:0;
   flex:0 0 auto;

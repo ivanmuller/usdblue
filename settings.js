@@ -1,8 +1,12 @@
-const mainData = {
-  "quotes" : [
+const dev = process.env.NODE_ENV !== 'production';
+
+export default {
+  host: dev ? 'http://localhost:3000' : 'https://usdblue.vercel.app/',
+  swrRefreshInterval: 900000,
+  mainData : [
     {
       "enabled": true,
-      "source": "https://mercados.ambito.com/home/general",  
+      "source": "https://mercados.ambito.com/home/general",
       "sourceName": "Ambito Financiero",
       "method": 'getByJson',
       "selectionKey1": "val1",
@@ -28,7 +32,7 @@ const mainData = {
       "selectionFilter": "\\$"
     },
     {
-      "enabled": false,
+      "enabled": true,
       "source": "https://api-contenidos.lanacion.com.ar/json/V3/economia/cotizacionblue/DBLUE",
       "sourceName": "La Nación",
       "method": 'getByJson',
@@ -37,5 +41,3 @@ const mainData = {
     }
   ]
 }
-
-export default mainData

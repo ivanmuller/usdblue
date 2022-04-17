@@ -1,12 +1,14 @@
-export type Quote = {
+export type Source = {
   sourceId: number
   source: string
   sourceName: string
   buy_price: number
   sell_price: number
+  buy_price_slippage: number
+  sell_price_slippage: number
 }
 
-export type QuoteSetting = {
+export type SourceSetting = {
   enabled: boolean
   source: string
   sourceName: string
@@ -14,13 +16,6 @@ export type QuoteSetting = {
   selectionKey1: string
   selectionKey2: string
   selectionFilter: string
-}
-
-export type Slippage = {
-  sourceId: number
-  buy_price_slippage: number
-  sell_price_slippage: number
-  source: string
 }
 
 export type Average = {

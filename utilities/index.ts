@@ -9,7 +9,9 @@ export const calcSlippage = (average: number, original: any): number => {
 }
 
 export const fetcher = async (url:string) => {
-  const res = await fetch(url)
+  const res = await fetch(url,{
+      method: 'POST'
+  })
   if (!res.ok) {
     const error : any = new Error('An error occurred while fetching the data.')
     error.info = await res.json()

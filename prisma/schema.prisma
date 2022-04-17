@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Scrapped {
+  id Int @id @default(autoincrement())
+  sourceId Int
+  date String
+  sourceName String
+  buy_price Float
+  sell_price Float
+}
+
+model Averages {
+  id Int @id @default(autoincrement())
+  date String
+  buy_price Float
+  sell_price Float
+}
