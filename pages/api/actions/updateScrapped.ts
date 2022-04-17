@@ -12,8 +12,9 @@ export default async function Updater(req: NextApiRequest, res: NextApiResponse)
   if (req.method != 'POST') {
     res.setHeader('Allow', 'POST');
     res.status(405).end('Method Not Allowed');
+    return
   }
-  
+
   const mainDataEnabled = settings.mainData.filter((item: SourceSetting) => item.enabled)
 
   const promises = mainDataEnabled.map((item: SourceSetting, index: number) => {

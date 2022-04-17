@@ -1,7 +1,7 @@
-name: 1-minute-cron
+name: 15hsarg-updateaverages
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '0 18 * * *'
 jobs:
   cron:
     runs-on: ubuntu-latest

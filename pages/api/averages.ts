@@ -7,13 +7,15 @@ export default async function handler(req: NextApiRequest | any, res: NextApiRes
   if (req.method != 'POST') {
     res.setHeader('Allow', 'POST');
     res.status(405).end('Method Not Allowed');
+    return
   }
-  
+
   try {
     const result = await prisma.averages.findMany();
-    return res.status(200).json(result)
+    res.setHeader('Cache-Control', 's-maxage=1800');
+    res.status(200).json(result)
   } catch(error) {
-    return res.status(404).json({ 'error': error.toString() })
+    res.status(404).json({ 'error': error.toString() })
   }
 
 }
