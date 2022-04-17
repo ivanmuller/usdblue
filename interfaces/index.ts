@@ -1,4 +1,5 @@
 export type Source = {
+  date: string
   sourceId: number
   source: string
   sourceName: string

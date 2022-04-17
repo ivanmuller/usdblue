@@ -2,8 +2,8 @@ import React from 'react'
 import { Text } from 'styles/Layout'
 import { AverageStyled } from 'styles/Average'
 
-export const Average = ({averages}) => {
-  const today = new Date().toLocaleDateString()
+export const Average = ({ averages, lastUpdate}) => {
+  const today = new Date(lastUpdate).toTimeString()
  
   return (
     <AverageStyled>
@@ -18,7 +18,7 @@ export const Average = ({averages}) => {
           <Text {...{ 'as': 'span', 'fs': 'lg', 'fw': '900' }}>{averages ? averages.average_sell_price : '...'}</Text>
         </Text>
       </div>
-      <div className="date"><span suppressHydrationWarning={true}>{today}</span></div>
+      <div className="date">Last Update: <span suppressHydrationWarning={true}>{today}</span></div>
     </AverageStyled>
   )
 }

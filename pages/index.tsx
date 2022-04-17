@@ -26,7 +26,8 @@ export default function Home() {
         'sell_price_slippage': calcSlippage(processedAverage.average_sell_price, item.sell_price)
       });
     });
-    processedData = { 'sources': dataWithSlippage, 'averages': processedAverage }
+    const lastUpdate = data[0].date
+    processedData = { 'sources': dataWithSlippage, 'averages': processedAverage, 'lastUpdate': lastUpdate }
   }
 
   return (
@@ -37,7 +38,7 @@ export default function Home() {
 
       <Wrapper>
         {error && <p>{error.info.error}</p>}
-        {!isLoading && <Average averages={processedData.averages} />}
+        {!isLoading && <Average averages={processedData.averages} lastUpdate={processedData.lastUpdate} />}
         {!isLoading && <Sources sources={processedData.sources} />}
       </Wrapper>
     </>
