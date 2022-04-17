@@ -1,7 +1,7 @@
 const dev = process.env.NODE_ENV !== 'production';
 
 export default {
-  host: dev ? 'http://localhost:3000' : 'https://usdblue.vercel.app/',
+  host: dev ? 'http://localhost:3000' : 'https://usdblue.vercel.app',
   swrRefreshInterval: 900000,
   mainData : [
     {
