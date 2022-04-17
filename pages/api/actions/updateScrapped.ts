@@ -22,7 +22,6 @@ export default async function Updater(req: NextApiRequest, res: NextApiResponse)
 
   Promise.all(promises)
   .then(response => {
-    console.log(response);
     async function deleteAndUpdateScrapped() {
       await prisma.scrapped.deleteMany({})
       await prisma.scrapped.createMany({

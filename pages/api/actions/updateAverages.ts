@@ -21,7 +21,6 @@ export default async function Updater(req: NextApiRequest, res: NextApiResponse)
     updateAverages()
     res.status(200).json({ 'message': 'Done' })
   }).catch(error => {
-    console.log('hdp')
     res.status(404).json({ 'Error': error.toString() })
   })
 
