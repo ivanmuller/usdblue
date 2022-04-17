@@ -19,7 +19,9 @@ export default async function Updater(req: NextApiRequest, res: NextApiResponse)
   }).then(response => {
     const average_buy_price = calcAverage(response, 'buy_price')
     const average_sell_price = calcAverage(response, 'sell_price')
-    const today = new Date().toLocaleString()
+    let today = new Date()
+    today.setHours(today.getHours() - settings.timeZoneOffsetHours)
+    today.toLocaleString()
     async function updateAverages() {
       await prisma.averages.create({
         data: ({date: today, buy_price : average_buy_price, sell_price : average_sell_price})

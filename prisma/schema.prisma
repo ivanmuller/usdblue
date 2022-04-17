@@ -13,7 +13,7 @@ datasource db {
 model Scrapped {
   id Int @id @default(autoincrement())
   sourceId Int
-  date String
+  date DateTime @default(now())
   sourceName String
   buy_price Float
   sell_price Float
@@ -21,7 +21,7 @@ model Scrapped {
 
 model Averages {
   id Int @id @default(autoincrement())
-  date String
+  date DateTime @default(now())
   buy_price Float
   sell_price Float
 }

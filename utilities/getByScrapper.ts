@@ -1,8 +1,11 @@
+import settings from "settings"
 const cheerio = require('cheerio')
 
 const getByScrapper = (item:any,index:number) => {
   const { source, sourceName, selectionKey1, selectionKey2, selectionFilter } = item
-  const today = new Date().toLocaleString()
+  let today = new Date()
+  today.setHours(today.getHours() - settings.timeZoneOffsetHours)
+  today.toLocaleString()
   
   return fetch(source)
   .then((response : any) => {
