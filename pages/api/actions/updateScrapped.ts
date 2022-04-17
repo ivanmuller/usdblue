@@ -22,16 +22,16 @@ export default async function Updater(req: NextApiRequest, res: NextApiResponse)
 
   Promise.all(promises)
   .then(response => {
+    console.log(response);
     async function deleteAndUpdateScrapped() {
       await prisma.scrapped.deleteMany({})
-      response.forEach(async (respItem) => {
-        await prisma.scrapped.create({
-          data: respItem
-        })
+      await prisma.scrapped.createMany({
+        data: response
       })
     }
-    deleteAndUpdateScrapped()
-    return res.status(200).json({ 'message': 'done' })
+    deleteAndUpdateScrapped().then(()=>{
+      return res.status(200).json({ 'message': 'done' })
+    })
   })
   .catch(error => res.status(404).json({ 'Error': error.toString() }));
 }
