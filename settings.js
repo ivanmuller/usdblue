@@ -2,7 +2,7 @@ const dev = process.env.NODE_ENV !== 'production';
 
 export default {
   host: dev ? 'http://localhost:3000' : 'https://usdblue.vercel.app',
-  timeZoneOffsetHours: dev ? 0 : -3,
+  timeZoneOffsetHours: dev ? 0 : 3,
   swrRefreshInterval: 900000,
   mainData : [
     {
