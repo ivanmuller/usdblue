@@ -6,8 +6,14 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient(); 
 
 export default async function Updater(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method != 'POST') {
+    res.setHeader('Allow', 'POST');
+    res.status(405).end('Method Not Allowed');
+  }
 
-  fetch(`${settings.host}/api/scrapped`).then(resp =>{
+  fetch(`${settings.host}/api/scrapped`, {
+    method: 'POST'
+  }).then(resp =>{
     return resp.json()
   }).then(response => {
     const average_buy_price = calcAverage(response, 'buy_price')
