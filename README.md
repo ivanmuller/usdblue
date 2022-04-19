@@ -2,7 +2,7 @@
 
 👷‍♂️ Work in progress
 
-A webapp to show the unofficial price of USD in Argentina from different sources and different ascrapping methods.
+A webapp to show the unofficial price of USD in Argentina from different sources and different scrapping methods.
 
 [Demo vailable here](https://usdblue.vercel.app)
 
