@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import settings from 'styles/_settings'
 
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -11,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: 'Inter', sans-serif;
     font-size: 1.6rem;
+    color:${settings.colors.neutral}
   }
 
   a {

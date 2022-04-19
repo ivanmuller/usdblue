@@ -9,7 +9,7 @@ export default {
     'lg': '3.5rem'
   },
   'colors': {
-    'neutral': '#000',
+    'neutral': '#222',
     'brand1': '#4C4D86',
     'brand2': '#820263',
     'brandLight': '#ccebf1',
