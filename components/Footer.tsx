@@ -5,7 +5,7 @@ export default function Footer(){
   <FooterStyled>
     <Wrapper>
       <span>
-          @2022 <a href="https://github.com/ivanmuller/usdblue" target="_blank">Iván Müller</a>
+          @2022 <a href="https://github.com/ivanmuller/usdblue" target="_blank" rel="noreferrer">Iván Müller</a>
       </span>
     </Wrapper>
   </FooterStyled>
