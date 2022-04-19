@@ -10,10 +10,10 @@ import type { Average as AverageType, Source } from 'interfaces'
 export default function Home() {
   
   const { data, error } = useSWR<Source[]>('/api/scrapped')
-  const isLoading: boolean = !data
+  const isLoading: boolean = !data && !error
   let processedData : any = { 'sources' : data }
 
-  if (!isLoading){
+  if (data){
     const processedAverage: AverageType = {
       'average_buy_price': calcAverage(data, 'buy_price'),
       'average_sell_price': calcAverage(data, 'sell_price')
@@ -36,9 +36,10 @@ export default function Home() {
         <title>Usd Blue</title>
       </Head>
 
-      <Wrapper>
-        {error && <p>{error.info.error}</p>}
+      <Wrapper className={isLoading && 'loading'}>
+        {isLoading && <p>Loading...</p>}
         {!isLoading && <Average averages={processedData.averages} lastUpdate={processedData.lastUpdate} />}
+        {error && <p>Error: {error.info}</p>}
         {!isLoading && <Sources sources={processedData.sources} />}
       </Wrapper>
     </>

@@ -5,7 +5,7 @@ export const calcAverage = (arr: any, column: string): number => {
 
 export const calcSlippage = (average: number, original: any): number => {
   const result = ((original - average) / average) * 100
-  return Math.round(result * 100) / 100
+  return Math.round(result * 10) / 10
 }
 
 export const fetcher = async (url:string) => {
@@ -14,7 +14,7 @@ export const fetcher = async (url:string) => {
   })
   if (!res.ok) {
     const error : any = new Error('An error occurred while fetching the data.')
-    error.info = await res.json()
+    error.info = res.statusText
     error.status = res.status
     throw error
   }
