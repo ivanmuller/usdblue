@@ -3,6 +3,30 @@ const dev = process.env.NODE_ENV !== 'production';
 export default {
   host: dev ? 'http://localhost:3000' : 'https://usdblue.vercel.app',
   swrRefreshInterval: 1800000,
+  chart : {
+    height: "200px",
+    tooltipsColors: {
+      "#333591": "#4C4D86",
+      "#f308b8": "#820263"
+    },
+    theme: {
+      axis: {
+        ticks: {
+          text: {
+            fill: "#222",
+            fontWeight: "bold",
+            textTransform: "uppercase",
+            fontSize: "1.2rem"
+          }
+        }
+      },
+      grid: {
+        line: {
+          stroke: "rgba(255,255,255,0.5)"
+        }
+      }
+    }
+  },
   mainData : [
     {
       "enabled": true,

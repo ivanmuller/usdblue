@@ -2,6 +2,9 @@ export default {
   'headerHeight' : '70px',
   'wrapperWidth': '840px',
   'gap': '3rem',
+  'chart': {
+    'height': '200px'
+  },
   'fs': {
     'xs': '1.6rem',
     'sm' : '1.8rem',

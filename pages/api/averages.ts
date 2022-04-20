@@ -11,7 +11,14 @@ export default async function handler(req: NextApiRequest | any, res: NextApiRes
   }
 
   try {
-    const result = await prisma.averages.findMany();
+    const result = await prisma.averages.findMany({
+      take: 8,
+      orderBy: [
+        {
+          date: 'asc',
+        }
+      ],
+    });
     res.setHeader('Cache-Control', 's-maxage=1800');
     res.status(200).json(result)
   } catch(error) {

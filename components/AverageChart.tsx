@@ -1,96 +1,23 @@
 import { ResponsiveLine } from '@nivo/line'
 import { ChartWrapStyled } from 'styles/Chart'
-
-const tooltipsColors = {
-  '#333591': '#4C4D86',
-  '#f308b8' : '#820263'
-}
-
-const dataForChart = [
-  {
-    "id": "Buying at",
-    "color": "#333591",
-    "data": [
-      {
-        "x": "",
-        "y": 195
-      },
-      {
-        "x": "Mon",
-        "y": 195
-      },
-      {
-        "x": "Tue",
-        "y": 196
-      },
-      {
-        "x": "Wed",
-        "y": 198
-      },
-      {
-        "x": "Thu",
-        "y": 200
-      },
-      {
-        "x": "Fri",
-        "y": 191
-      },
-      {
-        "x": "TODAY",
-        "y": 191
-      },
-      {
-        "x": ".",
-        "y": 191
-      }
-    ]
-  },
-  {
-    "id": "Selling at",
-    "color": "#f308b8",
-    "data": [
-      {
-        "x": "",
-        "y": 197
-      },
-      {
-        "x": "Mon",
-        "y": 197
-      },
-      {
-        "x": "Tue",
-        "y": 198
-      },
-      {
-        "x": "Wed",
-        "y": 200
-      },
-      {
-        "x": "Thu",
-        "y": 202
-      },
-      {
-        "x": "Fri",
-        "y": 193
-      },
-      {
-        "x": "TODAY",
-        "y": 193
-      },
-      {
-        "x": ".",
-        "y": 193
-      }
-    ]
-  }
-]
+import { buildDataForChart } from 'utilities'
+import type { Average as AverageType } from 'interfaces'
+import useSWR from 'swr'
+import settings from 'settings'
 
 export const AverageChart = () => {
+  const { data, error } = useSWR<AverageType[]>('/api/averages')
+  const isLoading: boolean = !data && !error
+  let streams = [];
 
+  const stream1 = buildDataForChart(data, 'Buying at', 'buy_price', '#333591')
+  const stream2 = buildDataForChart(data, 'Selling at', 'sell_price', '#f308b8')
+  streams = [stream1, stream2]
+  
   return (
     <ChartWrapStyled>
-      <ResponsiveLine
-        data={dataForChart}
+      {data && (<ResponsiveLine
+        data={streams}
         curve="monotoneX"
         margin={{ top: 1, right: 0, bottom: 50, left: 0 }}
         xScale={{ type: 'point' }}
@@ -110,28 +37,20 @@ export const AverageChart = () => {
           tickPadding: 20,
           legend: '',
           legendOffset: 27,
-          legendPosition: 'middle'
+          legendPosition: 'middle',
+          format: (d) => {
+            const date = new Date(d)
+            let dayOfWeek = ""
+            if (date instanceof Date && !isNaN(date)){
+              dayOfWeek = new Intl.DateTimeFormat('en-US', { weekday: 'short' }).format(date)
+            }
+            return dayOfWeek
+          }
         }}
         enableGridX={false}
         colors={d => d.color}
         colorBy="index"
-        theme={{
-          axis: {
-            ticks: {
-              text: {
-                fill: "#222",
-                fontWeight: "bold",
-                textTransform: "uppercase",
-                fontSize: "1.2rem"
-              }
-            }
-          },
-          grid: {
-            line: {
-              stroke: "rgba(255,255,255,0.5)"
-            }
-          }
-        }}
+        theme={settings.chart.theme}
         lineWidth={0}
         enablePoints={false}
         enableArea={true}
@@ -141,27 +60,35 @@ export const AverageChart = () => {
         useMesh={true}
         legends={[]}
         motionConfig="stiff"
-        sliceTooltip={({ slice }) => (
-            <div style={{
-                background: 'white',
-                padding: '1rem'
-              }}>
-              {slice.points.map(point => (                  
-                  <div
-                    key={point.id}
-                    style={{
-                      color: tooltipsColors[point.color],
-                      padding: '2px'
-                    }}
-                  >
-                    {point.serieId} <strong>{point.data.yFormatted}</strong>
-                  </div>
-                )
-            )}
-            </div>
-          )
+        sliceTooltip={({ slice }) => {
+          const date = new Date(slice.points[0].data.xFormatted)
+          let tooltipDate = ""
+          if (date instanceof Date && !isNaN(date)) {
+            tooltipDate = date.toLocaleDateString()
+          }
+            return (
+              <div style={{
+                  background: 'white',
+                  padding: '1rem'
+                }}>
+                <b>{tooltipDate}</b>
+                {slice.points.map(point => (                  
+                    <div
+                      key={point.id}
+                      style={{
+                        color: settings.chart.tooltipsColors[point.color],
+                        padding: '2px'
+                      }}
+                    > {point.serieId} <strong>{point.data.yFormatted}</strong>
+                    </div>
+                  )
+              )}
+              </div>
+            )
+          }
         }
-      />
-    </ChartWrapStyled>
+      />)
+    }
+    </ChartWrapStyled>    
   )
 }

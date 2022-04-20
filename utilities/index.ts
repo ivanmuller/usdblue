@@ -20,3 +20,20 @@ export const fetcher = async (url:string) => {
   }
   return res.json()
 }
+
+export const buildDataForChart = (data, streamId, keyData, color) => {
+  // adding first data
+  const stream = { id: streamId, color: color, data: [] }
+  //adding points of data
+  if (data) {
+    data.map((el,index, row) => {
+      // removing first key string for styling puprose
+      stream.data.push({ x: (index === 0) ? "" : el.date, y: el[keyData] })
+      // adding last key string for styling puprose
+      if (index + 1 === row.length){
+        stream.data.push({ x: ".", y: el[keyData] })
+      }
+    })
+  }
+  return stream
+}
