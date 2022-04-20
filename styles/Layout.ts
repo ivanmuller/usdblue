@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 
 export const MainStyled = styled.div`
   min-height: calc(100vh - ${settings.headerHeight});
-  padding:${settings.gap} 0 10rem;
+  padding:${settings.gap} 0 7rem;
   background:${settings.colors.white};
   overflow:auto;
 `

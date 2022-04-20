@@ -32,8 +32,10 @@ export const AverageStyled = styled(Card)`
     left:0;
     display:flex;
     justify-content: space-between;
-    span:nth-child(2){
-      color:${settings.colors.brand2};
+    .liveIndicator {
+      font-size:${settings.fs.md};
+      color: #ff5bab;
+      vertical-align: top;
     }
   }
 `

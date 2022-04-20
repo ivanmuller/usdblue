@@ -20,7 +20,15 @@ export const Average = ({ averages, lastUpdate }) => {
         </Text>
       </div>
       <AverageChart />
-      <div className="date"><span suppressHydrationWarning={true}>{today && <>Last Update: {today}hs</>}</span></div>
+      <div className="date">
+        <span suppressHydrationWarning={true}>
+          {today && 
+            <>
+            <span className="liveIndicator blink-1">•</span> Last Update: {today}hs
+            </>
+          }
+        </span>
+      </div>
     </AverageStyled>
   )
 }

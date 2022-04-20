@@ -34,4 +34,16 @@ export const GlobalStyle = createGlobalStyle`
   .text-center {
     text-align:center;
   }
+
+  // animations
+  .blink-1 {
+	-webkit-animation: blink-1 1.5s ease-in-out infinite both;
+	        animation: blink-1 1.5s ease-in-out infinite both;
+  }
+  @keyframes blink-1 {
+      0% { opacity: 1; }
+      25% { opacity: 0; }
+      50% { opacity: 1; }
+      75% { opacity: 0; }
+  }
 `

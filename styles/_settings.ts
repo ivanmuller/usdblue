@@ -3,7 +3,7 @@ export default {
   'wrapperWidth': '840px',
   'gap': '3rem',
   'chart': {
-    'height': '200px'
+    'height': '170px'
   },
   'fs': {
     'xs': '1.6rem',

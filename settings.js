@@ -8,23 +8,6 @@ export default {
     tooltipsColors: {
       "#333591": "#4C4D86",
       "#f308b8": "#820263"
-    },
-    theme: {
-      axis: {
-        ticks: {
-          text: {
-            fill: "#222",
-            fontWeight: "bold",
-            textTransform: "uppercase",
-            fontSize: "1.2rem"
-          }
-        }
-      },
-      grid: {
-        line: {
-          stroke: "rgba(255,255,255,0.5)"
-        }
-      }
     }
   },
   mainData : [
