@@ -1,10 +1,15 @@
 import { ResponsiveLine } from '@nivo/line'
 import { ChartWrapStyled } from 'styles/Chart'
 
+const tooltipsColors = {
+  '#333591': '#4C4D86',
+  '#f308b8' : '#820263'
+}
+
 const dataForChart = [
   {
-    "id": "buy_price",
-    "color": "#4C4D86",
+    "id": "Buying at",
+    "color": "#333591",
     "data": [
       {
         "x": "",
@@ -41,8 +46,8 @@ const dataForChart = [
     ]
   },
   {
-    "id": "sell_price",
-    "color": "#820263",
+    "id": "Selling at",
+    "color": "#f308b8",
     "data": [
       {
         "x": "",
@@ -108,13 +113,16 @@ export const AverageChart = () => {
           legendPosition: 'middle'
         }}
         enableGridX={false}
-        colors={['#4C4D86', '#820263']}
+        colors={d => d.color}
         colorBy="index"
         theme={{
           axis: {
             ticks: {
               text: {
-                fill: "#222"
+                fill: "#222",
+                fontWeight: "bold",
+                textTransform: "uppercase",
+                fontSize: "1.2rem"
               }
             }
           },
@@ -124,13 +132,35 @@ export const AverageChart = () => {
             }
           }
         }}
+        lineWidth={0}
         enablePoints={false}
         enableArea={true}
-        areaOpacity={0.05}
-        enableCrosshair={false}
+        areaOpacity={0.15}
+        enableSlices="x"
+        crosshairType="cross"
         useMesh={true}
         legends={[]}
         motionConfig="stiff"
+        sliceTooltip={({ slice }) => (
+            <div style={{
+                background: 'white',
+                padding: '1rem'
+              }}>
+              {slice.points.map(point => (                  
+                  <div
+                    key={point.id}
+                    style={{
+                      color: tooltipsColors[point.color],
+                      padding: '2px'
+                    }}
+                  >
+                    {point.serieId} <strong>{point.data.yFormatted}</strong>
+                  </div>
+                )
+            )}
+            </div>
+          )
+        }
       />
     </ChartWrapStyled>
   )

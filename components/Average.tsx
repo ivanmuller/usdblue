@@ -8,7 +8,7 @@ export const Average = ({ averages, lastUpdate }) => {
 
   return (
     <AverageStyled>
-      <Text {...{ 'as': 'h2', 'fs': 'lg', 'fw': '900' }}>USD BLUE <Text {...{ 'as': 'span', 'fs': 'sm' }}>Price Average</Text></Text>
+      <Text {...{ 'as': 'h2', 'fs': 'lg', 'fw': '900' }}>USD BLUE <Text {...{ 'as': 'span', 'fs': 'sm' }}>AR$ Price Average</Text></Text>
       <div>
         <Text {...{ 'as': 'p', 'fs': 'md', 'color': 'brand1' }}>
           Buying at<br />
