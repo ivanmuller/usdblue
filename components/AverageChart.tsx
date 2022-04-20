@@ -16,7 +16,7 @@ export const AverageChart = () => {
   
   return (
     <ChartWrapStyled>
-      {data && (<ResponsiveLine
+      {data && <ResponsiveLine
         data={streams}
         curve="monotoneX"
         margin={{ top: 1, right: 0, bottom: 50, left: 0 }}
@@ -32,16 +32,15 @@ export const AverageChart = () => {
         axisRight={null}
         axisLeft={null}
         axisBottom={{
-          orient: 'bottom',
           tickSize: 0,
           tickPadding: 20,
           legend: '',
           legendOffset: 27,
           legendPosition: 'middle',
-          format: (d) => {
+          format: (d : any) => {
             const date = new Date(d)
             let dayOfWeek = ""
-            if (date instanceof Date && !isNaN(date)){
+            if (date instanceof Date && !isNaN(date.getTime())){
               dayOfWeek = new Intl.DateTimeFormat('en-US', { weekday: 'short' }).format(date)
             }
             return dayOfWeek
@@ -49,8 +48,23 @@ export const AverageChart = () => {
         }}
         enableGridX={false}
         colors={d => d.color}
-        colorBy="index"
-        theme={settings.chart.theme}
+        theme={{
+          axis: {
+            ticks: {
+              text: {
+                fill: "#222",
+                fontWeight: "bold",
+                textTransform: "uppercase",
+                fontSize: "1.2rem"
+              }
+            }
+          },
+          grid: {
+            line: {
+              stroke: "rgba(255,255,255,0.5)"
+            }
+          }
+        }}
         lineWidth={0}
         enablePoints={false}
         enableArea={true}
@@ -63,7 +77,7 @@ export const AverageChart = () => {
         sliceTooltip={({ slice }) => {
           const date = new Date(slice.points[0].data.xFormatted)
           let tooltipDate = ""
-          if (date instanceof Date && !isNaN(date)) {
+          if (date instanceof Date && !isNaN(date.getTime())) {
             tooltipDate = date.toLocaleDateString()
           }
             return (
@@ -87,7 +101,7 @@ export const AverageChart = () => {
             )
           }
         }
-      />)
+      />
     }
     </ChartWrapStyled>    
   )
