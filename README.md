@@ -8,7 +8,7 @@ A React webapp to show the unofficial price of USD in Argentina (AR$) from diffe
 
 ## Overview
 - **Framework**: [Next.js](https://nextjs.org/)
-- **Database**: [Heroku postgresql](https://planetscale.com)
+- **Database**: [Heroku postgreSQL](https://www.heroku.com/postgres)
 - **ORM**: [Prisma](https://prisma.io/)
 - **Deployment**: [Vercel](https://vercel.com)
 - **Chart**: [Nivo](https://nivo.rocks/)
