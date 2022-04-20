@@ -1,20 +1,28 @@
 # 💸 USD BLUE React App
 
-A webapp to show the unofficial price of USD in Argentina from different sources and different scraping methods.
+A React webapp to show the unofficial price of USD in Argentina (AR$) from different sources and different scraping methods. With the help of GitHub Actions, the app refreshes the collected data in the database every hour and also saves the current average price once a day.
 
-[Available here](https://usdblue.vercel.app)
+[Project URL here](https://usdblue.vercel.app)
 
-![screenshot](http://ivanmuller.me/images/blueusd.png)
+![screenshot](http://ivanmuller.me/images/blueusd2.png)
 
-## Features
-
-- Framework: Next.js
-- Styles: Styled-Components
-- SWR
-- Cheerio
+## Overview
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Database**: [Heroku postgresql](https://planetscale.com)
+- **ORM**: [Prisma](https://prisma.io/)
+- **Deployment**: [Vercel](https://vercel.com)
+- **Chart**: [Nivo](https://nivo.rocks/)
+- **Styling**: [Styled-Components](https://styled-components.com/)
+- **Automation**: [GitHub Actions](https://github.com/features/actions)
 
 ## To do
 
 - [x] Database
-- [ ] Average history data and charts
+- [x] Average history data and charts
+- [ ] Spanish Language
 - [ ] Typescript
+- [ ] Error Handling improvements
+- [ ] History Chart expanded option
+
+## Running Locally
+ Updating soon...
