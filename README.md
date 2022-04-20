@@ -15,6 +15,6 @@ A webapp to show the unofficial price of USD in Argentina from different sources
 
 ## To do
 
-- [ ] Database
+- [x] Database
 - [ ] Average history data and charts
 - [ ] Typescript
