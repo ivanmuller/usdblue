@@ -4,7 +4,7 @@ A React webapp to show the unofficial price of USD in Argentina (AR$) from diffe
 
 [Project URL here](https://usdblue.vercel.app)
 
-![screenshot](http://ivanmuller.me/images/blueusd2.png)
+![screenshot](http://ivanmuller.me/images/blueusd3.png)
 
 ## Overview
 - **Framework**: [Next.js](https://nextjs.org/)
