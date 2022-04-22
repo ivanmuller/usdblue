@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import settings from 'styles/_settings'
+import settings from 'settings'
 
 export const ChartWrapStyled = styled.div`
-  width:calc(100% + (${settings.gap}*2));
-  height:${settings.chart.height};
-  margin:-${settings.gap};
+  width:calc(100% + (${settings.styles.gap}*2));
+  height:${settings.styles.chart.height};
+  margin:-${settings.styles.gap};
   margin-top:0;
   position:relative;
   &:before {
@@ -12,7 +12,7 @@ export const ChartWrapStyled = styled.div`
     position:absolute;
     left:0;
     width:25px;
-    height:${settings.chart.height};
+    height:${settings.styles.chart.height};
     bottom:0;
     z-index:9;
   }
@@ -21,11 +21,11 @@ export const ChartWrapStyled = styled.div`
     position:absolute;
     right:0;
     width:25px;
-    height:${settings.chart.height};
-    background-image: linear-gradient(90deg, transparent, ${settings.colors.brandLight});
+    height:${settings.styles.chart.height};
+    background-image: linear-gradient(90deg, transparent, ${settings.styles.colors.brandLight});
     bottom:0;
   }
-  @media screen and (min-width:${settings.wrapperWidth}){
+  @media screen and (min-width:${settings.styles.wrapperWidth}){
     &:before, &:after {
       width:75px;
     }

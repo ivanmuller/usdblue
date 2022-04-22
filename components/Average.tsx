@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from 'styles/Layout'
+import { TextLgBold, TextSm, TextMdBrand1, TextMdBrand2 } from 'styles/Text'
 import { AverageStyled } from 'styles/Average'
 import { AverageChart } from 'components/AverageChart'
 import { lastUpdateFormat } from 'utilities'
@@ -7,16 +7,16 @@ import { lastUpdateFormat } from 'utilities'
 export const Average = ({ averages, lastUpdate }) => {
   return (
     <AverageStyled>
-      <Text {...{ as: 'h2', fs: 'lg', fw: '900' }}>USD BLUE <Text {...{ as: 'span', fs: 'sm' }}>AR$ Price Average</Text></Text>
+      <TextLgBold as='h2'>USD BLUE <TextSm>AR$ Price Average</TextSm></TextLgBold>
       <div>
-        <Text {...{ as: 'p', fs: 'md', color: 'brand1' }}>
+        <TextMdBrand1 as='p'>
           Buying at<br />
-          <Text {...{ as: 'span', fs: 'lg', fw: '900' }}>{averages ? averages.average_buy_price : '...'}</Text>
-        </Text>
-        <Text {...{ as: 'p', fs: 'md', color: 'brand2' }}>
+          <TextLgBold>{averages ? averages.average_buy_price : '...'}</TextLgBold>
+        </TextMdBrand1>
+        <TextMdBrand2 as='p'>
           Selling at<br />
-          <Text {...{ as: 'span', fs: 'lg', fw: '900' }}>{averages ? averages.average_sell_price : '...'}</Text>
-        </Text>
+          <TextLgBold>{averages ? averages.average_sell_price : '...'}</TextLgBold>
+        </TextMdBrand2>
       </div>
       <AverageChart />
       <div className='date'>

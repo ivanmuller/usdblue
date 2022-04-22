@@ -1,19 +1,19 @@
 import styled from 'styled-components'
-import settings from 'styles/_settings'
+import settings from 'settings'
 
 // --- Layout --- //
 export const Wrapper = styled.div`
   margin-left:auto;
   margin-right:auto;
-  padding-left:${settings.gap};
-  padding-right:${settings.gap};
-  max-width: ${settings.wrapperWidth};
+  padding-left:${settings.styles.gap};
+  padding-right:${settings.styles.gap};
+  max-width: ${settings.styles.wrapperWidth};
 `
 
 export const MainStyled = styled.div`
-  min-height: calc(100vh - ${settings.headerHeight});
-  padding:${settings.gap} 0 7rem;
-  background:${settings.colors.white};
+  min-height: calc(100vh - ${settings.styles.headerHeight});
+  padding:${settings.styles.gap} 0 7rem;
+  background:${settings.styles.colors.white};
   overflow:auto;
 `
 
@@ -21,11 +21,11 @@ export const FooterStyled = styled.footer`
   position:fixed;
   bottom:0;
   width:100%;
-  background:${settings.colors.light};
-  border-top:1px solid ${settings.colors.neutral};
+  background:${settings.styles.colors.light};
+  border-top:1px solid ${settings.styles.colors.neutral};
   ${Wrapper} {
     height:100%;
-    height:${settings.headerHeight};
+    height:${settings.styles.headerHeight};
     display:flex;
     justify-content:right;
     align-items:center;
@@ -34,20 +34,12 @@ export const FooterStyled = styled.footer`
 // --- Elements -- //
 export const Card = styled.article`
   border-radius:1rem;
-  padding:${settings.gap};
+  padding:${settings.styles.gap};
   position:relative;
-  margin-bottom:${settings.gap};
+  margin-bottom:${settings.styles.gap};
   overflow:hidden;
   display:flex;
   flex-wrap:wrap;
-  gap:${settings.gap};
+  gap:${settings.styles.gap};
   flex-direction:${props => props.direction || ''};
-`
-
-export const Text = styled.span`
-  margin:${props => props.margin || '0 0 0 0'};
-  padding:0;
-  color:${props => settings.colors[props.color] || ''};
-  font-weight:${props => props.fw || '300'};
-  font-size: ${props => settings.fs[props.fs] || settings.fs.sm};
 `

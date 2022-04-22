@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import settings from 'styles/_settings'
+import settings from 'settings'
 
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: 'Inter', sans-serif;
     font-size: 1.6rem;
-    color:${settings.colors.neutral}
+    color:${settings.styles.colors.neutral}
   }
 
   a {
@@ -33,6 +33,15 @@ export const GlobalStyle = createGlobalStyle`
 
   .text-center {
     text-align:center;
+  }
+
+  p {
+    margin:0;
+  }
+
+  h2,h3,h4 {
+    margin:0;
+    margin-bottom:${settings.styles.gap};
   }
 
   // animations
