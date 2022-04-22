@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 import settings from 'styles/_settings'
 
 // --- Layout --- //
@@ -41,13 +41,13 @@ export const Card = styled.article`
   display:flex;
   flex-wrap:wrap;
   gap:${settings.gap};
-  flex-direction:${props => props.direction || ""};
+  flex-direction:${props => props.direction || ''};
 `
 
 export const Text = styled.span`
-  margin:${props => props.margin || "0 0 0 0"};
+  margin:${props => props.margin || '0 0 0 0'};
   padding:0;
-  color:${props => settings.colors[props.color] || ""};
-  font-weight:${props => props.fw || "300"};
-  font-size: ${props => settings.fs[props.fs] || settings.fs["sm"]};
+  color:${props => settings.colors[props.color] || ''};
+  font-weight:${props => props.fw || '300'};
+  font-size: ${props => settings.fs[props.fs] || settings.fs.sm};
 `

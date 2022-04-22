@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 import settings from 'styles/_settings'
 
 export const ChartWrapStyled = styled.div`
@@ -31,4 +31,3 @@ export const ChartWrapStyled = styled.div`
     }
   }
 `
-

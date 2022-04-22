@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 import settings from 'styles/_settings'
 
 export const GlobalStyle = createGlobalStyle`
@@ -37,8 +37,8 @@ export const GlobalStyle = createGlobalStyle`
 
   // animations
   .blink-1 {
-	-webkit-animation: blink-1 1.5s ease-in-out infinite both;
-	        animation: blink-1 1.5s ease-in-out infinite both;
+    -webkit-animation: blink-1 1.5s ease-in-out infinite both;
+    animation: blink-1 1.5s ease-in-out infinite both;
   }
   @keyframes blink-1 {
       0% { opacity: 1; }
