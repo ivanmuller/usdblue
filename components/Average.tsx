@@ -2,9 +2,9 @@ import React from 'react'
 import { Text } from 'styles/Layout'
 import { AverageStyled } from 'styles/Average'
 import { AverageChart } from  'components/AverageChart'
+import { lastUpdateFormat } from 'utilities'
 
 export const Average = ({ averages, lastUpdate }) => {
-  const today = lastUpdate ? new Date(lastUpdate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ""
 
   return (
     <AverageStyled>
@@ -22,9 +22,9 @@ export const Average = ({ averages, lastUpdate }) => {
       <AverageChart />
       <div className="date">
         <span suppressHydrationWarning={true}>
-          {today && 
+          {lastUpdate && 
             <>
-            <span className="liveIndicator blink-1">•</span> Last Update: {today}hs
+            <span className="liveIndicator blink-1">•</span> Last update: {lastUpdateFormat(lastUpdate)}
             </>
           }
         </span>

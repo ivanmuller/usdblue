@@ -1,7 +1,7 @@
 name: 15hsarg-updateaverages
 on:
   schedule:
-    - cron: '0 18 * * *'
+    - cron: '0 18 * * 1-5'
 jobs:
   cron:
     runs-on: ubuntu-latest

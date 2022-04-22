@@ -13,7 +13,6 @@ export const AverageChart = () => {
   const stream1 = buildDataForChart(data, 'Buying at', 'buy_price', '#333591')
   const stream2 = buildDataForChart(data, 'Selling at', 'sell_price', '#f308b8')
   streams = [stream1, stream2]
-  
   return (
     <ChartWrapStyled>
       {data && <ResponsiveLine
@@ -41,7 +40,7 @@ export const AverageChart = () => {
             const date = new Date(d)
             let dayOfWeek = ""
             if (date instanceof Date && !isNaN(date.getTime())){
-              dayOfWeek = new Intl.DateTimeFormat('en-US', { weekday: 'short' }).format(date)
+              dayOfWeek = date.toLocaleString('en-us', { weekday: 'short' });
             }
             return dayOfWeek
           }
