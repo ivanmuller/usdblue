@@ -7,7 +7,7 @@ export const calcAverage = (arr: any, column: string): number => {
 
 export const calcSlippage = (average: number, original: any): number => {
   const result = ((original - average) / average) * 100
-  return Math.round(result * 1000) / 1000
+  return Math.round(result * 10) / 10
 }
 
 export const formatSlippage = (data) => {
