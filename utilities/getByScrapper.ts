@@ -1,4 +1,3 @@
-import settings from "settings"
 const cheerio = require('cheerio')
 
 const getByScrapper = (item:any,index:number) => {

@@ -1,0 +1,27 @@
+{
+  "code": "es-ES",
+  "language-name-es": "Esp",
+  "language-name-en": "Eng",
+  "title": "DÓLAR BLUE",
+  "subTitle": "AR$ Precio Promedio",
+  "loading": "Cargando...",
+  "errorPrefix": "Error:",
+  "fetcherError": "Ha ocurrido un error al obtener los datos",
+  "averages": {
+    "buyTitle": "Compra",
+    "sellTitle": "Venta",
+    "lastUpdate": "Última actualización:"
+  },
+  "averageChart": {
+    "tooltipBuy": "Compra",
+    "tooltipSell": "Venta"
+  },
+  "sources": {
+    "title": "Fuentes",
+    "buy": "Compra",
+    "sell": "Venta",
+    "slippageSame": "Igual al promedio",
+    "slippagePositive": "+{{data}}% del prom.",
+    "slippageNegative": "{{data}}% del prom."
+  }
+}

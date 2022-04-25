@@ -30,6 +30,22 @@ export const FooterStyled = styled.footer`
     justify-content:right;
     align-items:center;
   }
+  ul {
+    display:flex;
+    margin-right:${settings.styles.gap};
+    gap:calc(${settings.styles.gap} / 2);
+    li a {
+      display:block;
+      text-transform: uppercase;
+      font-size:${settings.styles.fs.xs};
+      &.active {
+        border-bottom:1px solid;
+      }
+      &:hover {
+        text-decoration:none;
+      }
+    }
+  }
 `
 // --- Elements -- //
 export const Card = styled.article`

@@ -1,3 +1,5 @@
+import useTranslation from 'next-translate/useTranslation'
+
 export const calcAverage = (arr: any, column: string): number => {
   const result = arr.reduce((acc, el) => acc + el[column], 0) / arr.length
   return Math.round(result * 10) / 10
@@ -5,11 +7,14 @@ export const calcAverage = (arr: any, column: string): number => {
 
 export const calcSlippage = (average: number, original: any): number => {
   const result = ((original - average) / average) * 100
-  return Math.round(result * 10) / 10
+  return Math.round(result * 1000) / 1000
 }
 
 export const formatSlippage = (data) => {
-  return (data == 0) ? "Same of average" : (data > 0) ? `+${data}% of average` : `${data}% of average`
+  const { t } = useTranslation('common')
+  return (data == 0) ? t('sources.slippageSame') 
+    : (data > 0) ? t('sources.slippagePositive',{data : data}) 
+    : t('sources.slippageNegative', { data: data })
 }
 
 export const fetcher = async (url:string) => {
@@ -47,11 +52,12 @@ export const buildDataForChart = (data, streamId, keyData, color) => {
 }
 
 export const lastUpdateFormat = (lastUpdate) => {
+  const { t } = useTranslation('common')
   const today = new Date()
   const theLastUpdate = new Date(lastUpdate)
   if (today.getDate() === theLastUpdate.getDate()) {
     return theLastUpdate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }) + "hs"
   } else {
-    return theLastUpdate.toLocaleString('en-us', { weekday: 'long' }) + " " + theLastUpdate.toLocaleString('en-us', { day: 'numeric' })
+    return theLastUpdate.toLocaleString(t('code'), { weekday: 'long' }) + " " + theLastUpdate.toLocaleString(t('code'), { day: 'numeric' })
   }
 }

@@ -1,0 +1,27 @@
+{
+  "code": "en-US",
+  "language-name-es": "Esp",
+  "language-name-en": "Eng",
+  "title": "USD BLUE",
+  "subTitle": "AR$ Price Average",
+  "loading": "Loading...",
+  "errorPrefix": "Error:",
+  "fetcherError": "An error occurred while fetching the data.",
+  "averages": {
+    "buyTitle": "Buying at",
+    "sellTitle": "Selling at",
+    "lastUpdate": "Last update:"
+  },
+  "averageChart": {
+    "tooltipBuy": "Buying at",
+    "tooltipSell": "Selling at"
+  },
+  "sources": {
+    "title": "Sources",
+    "buy": "Buy",
+    "sell": "Sell",
+    "slippageSame": "Same of average",
+    "slippagePositive": "+{{data}}% of average",
+    "slippageNegative": "{{data}}% of average"
+  }
+}

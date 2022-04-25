@@ -19,7 +19,7 @@ A React webapp to show the unofficial price of USD in Argentina (AR$) from diffe
 
 - [x] Database
 - [x] Average history data and charts
-- [ ] Spanish Language 🧉
+- [x] Spanish Language 🧉
 - [ ] Typescript
 - [ ] Error Handling improvements
 - [ ] History Chart expanded option

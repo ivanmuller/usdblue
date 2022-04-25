@@ -1,17 +1,22 @@
+import settings from 'settings'
+import useSWR from 'swr'
+import useTranslation from 'next-translate/useTranslation'
+
 import { ResponsiveLine } from '@nivo/line'
 import { ChartWrapStyled } from 'styles/Chart'
 import { buildDataForChart } from 'utilities'
 import type { Average as AverageType } from 'interfaces'
-import useSWR from 'swr'
-import settings from 'settings'
+
 
 export const AverageChart = () => {
+  const { t } = useTranslation('common')
+  
   const { data, error } = useSWR<AverageType[]>('/api/averages')
   const isLoading: boolean = !data && !error
   let streams = [];
 
-  const stream1 = buildDataForChart(data, 'Buying at', 'buy_price', '#333591')
-  const stream2 = buildDataForChart(data, 'Selling at', 'sell_price', '#f308b8')
+  const stream1 = buildDataForChart(data, t('averageChart.tooltipBuy'), 'buy_price', '#333591')
+  const stream2 = buildDataForChart(data, t('averageChart.tooltipSell'), 'sell_price', '#f308b8')
   streams = [stream1, stream2]
   return (
     <ChartWrapStyled>
@@ -40,7 +45,7 @@ export const AverageChart = () => {
             const date = new Date(d)
             let dayOfWeek = ""
             if (date instanceof Date && !isNaN(date.getTime())){
-              dayOfWeek = date.toLocaleString('en-us', { weekday: 'short' });
+              dayOfWeek = date.toLocaleString(t('code'), { weekday: 'short' });
             }
             return dayOfWeek
           }
