@@ -29,7 +29,7 @@ export default function Home() {
         'sell_price_slippage': calcSlippage(processedAverage.average_sell_price, item.sell_price)
       });
     });
-    const lastUpdate = data[0].date
+    const lastUpdate = data[0]?.date
     processedData = { 'sources': dataWithSlippage, 'averages': processedAverage, 'lastUpdate': lastUpdate }
   }
 

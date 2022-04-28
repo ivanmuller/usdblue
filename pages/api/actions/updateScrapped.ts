@@ -24,12 +24,6 @@ export default async function Updater(req: NextApiRequest, res: NextApiResponse)
     return
   }
 
-  // Only SAME-ORIGIN allowed
-  if (req.headers.origin != settings.host) {
-    res.status(403).end('Origin forbidden');
-    return
-  }
-
   const mainDataEnabled = settings.mainData.filter((item: SourceSetting) => item.enabled)
 
   const promises = mainDataEnabled.map((item: SourceSetting, index: number) => {
@@ -40,17 +34,27 @@ export default async function Updater(req: NextApiRequest, res: NextApiResponse)
     }
   });
 
-  Promise.all(promises)
+  Promise.allSettled(promises)
   .then(response => {
+
+    const fullFilledSources = response.reduce((acc,item) => {
+      if (item.status === 'fulfilled') acc.push({...item.value})
+      return acc;
+    },[])
+
     async function deleteAndUpdateScrapped() {
       await prisma.scrapped.deleteMany({})
       await prisma.scrapped.createMany({
-        data: response
+        data: fullFilledSources
       })
     }
-    deleteAndUpdateScrapped().then(()=>{
-      return res.status(200).json({ 'message': 'done' })
-    })
+
+    if(fullFilledSources.length>0){
+      deleteAndUpdateScrapped().then(()=>{
+        return res.status(200).json({ 'message': 'done' })
+      })
+    }
+    
   })
   .catch(error => res.status(404).json({ 'Error': error.toString() }));
 }

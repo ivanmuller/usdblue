@@ -5,26 +5,22 @@ const getByScrapper = (item:any,index:number) => {
   const today = new Date()
   
   return fetch(source)
-  .then((response : any) => {
-    if (!response.ok) {
-      return {'error': response.status}
-    } else {
-      return response.text()
-    }
-  })
+  .then((response: any) => response.text())
   .then(data => {
     const $ = cheerio.load(data)
     const re = new RegExp(selectionFilter, "g")
-    const buyValue = $(selectionKey1).text().replace(re, '')
-    const sellValue = $(selectionKey2).text().replace(re, '')
-    return ({  
-      sourceName,
-      'date': today,
-      'sourceId': (index + 1),
-      'buy_price': parseFloat(buyValue),
-      'sell_price': parseFloat(sellValue)
-    })
-  });
+    const buyValue = parseFloat($(selectionKey1).text().replace(re, ''))
+    const sellValue = parseFloat($(selectionKey2).text().replace(re, ''))
+    if (!isNaN(buyValue) && !isNaN(sellValue)){
+      return ({
+        sourceName,
+        'date': today,
+        'sourceId': (index + 1),
+        'buy_price': buyValue,
+        'sell_price': sellValue
+      })
+    } throw new Error();    
+  }).catch(null);
 }
 
 export default getByScrapper;

@@ -21,12 +21,6 @@ export default async function Updater(req: NextApiRequest, res: NextApiResponse)
     return
   }
 
-  // Only SAME-ORIGIN allowed
-  if (req.headers.origin != settings.host) {
-    res.status(403).end('Origin forbidden');
-    return
-  }
-
   fetch(`${settings.host}/api/scrapped`, {
     method: 'POST'
   }).then(resp =>{
