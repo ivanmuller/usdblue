@@ -9,5 +9,5 @@ jobs:
       - name: Call our API route
         run: |
           curl --request POST \
-          --url 'https://usdblue.vercel.app/api/actions/updateScrapped'
+          --url 'https://usdblue.vercel.app/api/actions/updateScrapped' \
           --header 'Authorization: Bearer ${{ secrets.API_SECRET_KEY }}'
