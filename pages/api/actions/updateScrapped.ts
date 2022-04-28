@@ -14,6 +14,7 @@ export default async function Updater(req: NextApiRequest, res: NextApiResponse)
   const { authorization } = req.headers;
   if (authorization !== `Bearer ${process.env.API_SECRET_KEY}`) {
     res.status(401).end('Invalid Token');
+    return
   }
 
   // Only POST allowed
