@@ -7,6 +7,13 @@ const prisma = new PrismaClient();
 
 export default async function Updater(req: NextApiRequest, res: NextApiResponse) {
 
+  // Only WITH SECRET KEY allowed
+  const { authorization } = req.headers;
+  if (authorization !== `Bearer ${process.env.API_SECRET_KEY}`) {
+    res.status(401).end('Invalid Token');
+    return
+  }
+  
   // Only POST allowed
   if (req.method != 'POST') {
     res.setHeader('Allow', 'POST');
