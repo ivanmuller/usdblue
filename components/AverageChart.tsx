@@ -17,7 +17,8 @@ export const AverageChart = () => {
 
   const stream1 = buildDataForChart(data, t('averageChart.tooltipBuy'), 'buy_price', '#333591')
   const stream2 = buildDataForChart(data, t('averageChart.tooltipSell'), 'sell_price', '#f308b8')
-  streams = [stream1, stream2]
+  streams = [stream2, stream1]
+  
   return (
     <ChartWrapStyled>
       {data && <ResponsiveLine

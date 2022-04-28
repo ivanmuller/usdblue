@@ -1,7 +1,9 @@
-import { Wrapper, FooterStyled } from 'styles/Layout'
+import { Wrapper, FooterStyled, ImgStyled } from 'styles/Layout'
 import Link from 'next/link'
 import useTranslation from 'next-translate/useTranslation'
 import * as i18n from 'i18n.json'
+import Image from 'next/image'
+import logoGithub from 'public/github.png'
 
 export default function Footer () {
   const { locales } = i18n
@@ -20,7 +22,7 @@ export default function Footer () {
           )}
         </ul>
         <span>
-          @2022 <a href='https://github.com/ivanmuller/usdblue' target='_blank' rel='noreferrer'>Iván Müller</a>
+          @2022 <a href='https://github.com/ivanmuller/usdblue' target='_blank' rel='noreferrer'>Iván Müller <ImgStyled><Image alt='Iván Müller Github' src={logoGithub} width={16} height={16} /></ImgStyled></a>
         </span>
       </Wrapper>
     </FooterStyled>

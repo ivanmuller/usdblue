@@ -30,6 +30,13 @@ export const FooterStyled = styled.footer`
     justify-content:right;
     align-items:center;
   }
+  a {
+    &:hover {
+      text-decoration:none;
+      border-bottom:1px solid;
+    }
+  }
+  
   ul {
     display:flex;
     margin-right:${settings.styles.gap};
@@ -41,13 +48,17 @@ export const FooterStyled = styled.footer`
       &.active {
         border-bottom:1px solid;
       }
-      &:hover {
-        text-decoration:none;
-      }
     }
   }
 `
+
 // --- Elements -- //
+
+export const ImgStyled = styled.div`
+  display:inline-block;
+  vertical-align: middle;
+`
+
 export const Card = styled.article`
   border-radius:1rem;
   padding:${settings.styles.gap};
