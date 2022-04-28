@@ -6,9 +6,17 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient(); 
 
 export default async function Updater(req: NextApiRequest, res: NextApiResponse) {
+
+  // Only POST allowed
   if (req.method != 'POST') {
     res.setHeader('Allow', 'POST');
     res.status(405).end('Method Not Allowed');
+    return
+  }
+
+  // Only SAME-ORIGIN allowed
+  if (req.headers.origin != settings.host) {
+    res.status(403).end('Origin forbidden');
     return
   }
 
