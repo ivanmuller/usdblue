@@ -13,12 +13,6 @@ export default async function handler(req: NextApiRequest | any, res: NextApiRes
     return
   }
 
-  // Only SAME-ORIGIN allowed
-  if (req.headers.origin != settings.host) {
-    res.status(403).end('Origin forbidden');
-    return
-  }
-
   try {
     const result = await prisma.scrapped.findMany();
     res.setHeader('Cache-Control', 's-maxage=1800');
